@@ -17,11 +17,6 @@
       --green:   #0F6E56;
       --green-bg:#F0FDF9;
       --green-bd:#A7F3D0;
-      --red:     #DC2626;
-      --red-bg:  #FEF2F2;
-      --red-bd:  #FECACA;
-      --amber:   #D97706;
-      --amber-bg:#FFFBEB;
       --slate:   #4B6278;
       --muted:   #7A96A8;
       --border:  #E2E8F0;
@@ -56,23 +51,23 @@
     .btn-navy-pill:hover { background:#1a3d6b; }
     .btn-ghost-pill { padding:14px 32px; border-radius:30px; border:1.5px solid var(--border); background:#fff; color:var(--navy); font-size:15px; font-weight:600; font-family:'DM Sans',sans-serif; cursor:pointer; transition:border-color .2s; }
     .btn-ghost-pill:hover { border-color:var(--navy); }
-    .hero-fine { font-size:14px; color:var(--muted); margin-bottom:0; }
+    .hero-fine { font-size:14px; color:var(--muted); margin-bottom:52px; }
     .hero-fine strong { color:var(--navy); }
 
-    /* PHONE CTA HERO */
-    .phone-hero { margin-top:48px; padding:32px; background:var(--navy); border-radius:16px; max-width:560px; margin-left:auto; margin-right:auto; text-align:center; }
-    .phone-hero-label { font-size:13px; color:rgba(255,255,255,.5); margin-bottom:8px; letter-spacing:.3px; }
-    .phone-hero-number { font-family:'DM Serif Display',serif; font-size:42px; color:#fff; letter-spacing:1px; margin-bottom:8px; }
-    .phone-hero-sub { font-size:14px; color:rgba(255,255,255,.6); }
-    .phone-hero-sub strong { color:var(--teal); }
+    /* HERO FRAME */
+    .hero-frame { max-width:700px; margin:0 auto; border-radius:16px; overflow:hidden; border:1px solid var(--border); box-shadow:0 8px 48px rgba(15,42,74,.12); }
+    .frame-bar { background:var(--bg); padding:11px 18px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:7px; }
+    .fdot { width:10px; height:10px; border-radius:50%; }
+    .furl { background:#EDF2F7; border-radius:5px; padding:4px 16px; font-size:12px; color:var(--muted); margin-left:12px; flex:1; max-width:340px; text-align:center; }
+    .hero-frame img { width:100%; display:block; }
+    .hero-cap { font-size:15px; color:var(--slate); text-align:center; margin-top:14px; line-height:1.6; }
+    .hero-cap strong { color:var(--navy); }
 
-    /* STATS */
-    .stats { display:flex; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--bg); }
-    .stat { flex:1; padding:32px 24px; text-align:center; border-right:1px solid var(--border); }
-    .stat:last-child { border-right:none; }
-    .stat-n { font-family:'DM Serif Display',serif; font-size:42px; color:var(--navy); line-height:1; margin-bottom:7px; }
-    .stat-n.zero { color:var(--green); }
-    .stat-l { font-size:14px; color:var(--muted); line-height:1.5; }
+    /* PHONE STRIP */
+    .phone-strip { background:var(--navy); padding:20px 48px; display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; }
+    .phone-strip-label { font-size:14px; color:rgba(255,255,255,.6); }
+    .phone-strip-number { font-family:'DM Serif Display',serif; font-size:28px; color:var(--teal); letter-spacing:1px; }
+    .phone-strip-sub { font-size:13px; color:rgba(255,255,255,.4); }
 
     /* SECTIONS */
     .section { padding:80px 48px; }
@@ -95,7 +90,7 @@
     .pullquote span { font-size:14px; color:var(--muted); }
 
     /* STEPS */
-    .steps { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+    .steps { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:56px; }
     .step { padding:26px; border:1px solid var(--border); border-radius:14px; background:#fff; transition:border-color .2s; }
     .step:hover { border-color:var(--teal); }
     .step-n { font-size:12px; font-weight:700; color:var(--teal); margin-bottom:10px; letter-spacing:.3px; }
@@ -111,35 +106,15 @@
     .ptext h3 { font-family:'DM Serif Display',serif; font-size:30px; font-weight:400; color:var(--navy); line-height:1.2; margin-bottom:14px; }
     .ptext p { font-size:15px; color:var(--slate); line-height:1.75; margin-bottom:14px; }
     .proof-pill { display:inline-block; padding:5px 16px; background:var(--blue-lt); color:var(--blue); border-radius:20px; font-size:13px; font-weight:600; }
-    .proof-pill.green { background:var(--green-bg); color:var(--green); }
 
-    /* BEFORE/AFTER */
-    .ba-wrap { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:48px; }
-    .ba-card { padding:28px; border-radius:14px; text-align:center; }
-    .ba-card.before { background:var(--red-bg); border:1px solid var(--red-bd); }
-    .ba-card.after { background:var(--green-bg); border:1px solid var(--green-bd); }
-    .ba-label { font-size:11px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; margin-bottom:12px; }
-    .ba-card.before .ba-label { color:var(--red); }
-    .ba-card.after .ba-label { color:var(--green); }
-    .ba-number { font-family:'DM Serif Display',serif; font-size:64px; line-height:1; margin-bottom:8px; }
-    .ba-card.before .ba-number { color:var(--red); }
-    .ba-card.after .ba-number { color:var(--green); }
-    .ba-desc { font-size:14px; color:var(--slate); line-height:1.5; }
-    .ba-arrow { display:flex; align-items:center; justify-content:center; font-size:32px; color:var(--muted); }
-
-    /* CASE STUDY */
-    .case { background:linear-gradient(135deg,#F0F7FF,#F0FDFB); border:1px solid #DBEAFE; border-radius:16px; padding:40px; }
-    .case-stats { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border); border-radius:12px; overflow:hidden; background:#fff; margin:22px 0 32px; }
-    .cs { padding:20px 14px; text-align:center; border-right:1px solid var(--border); }
-    .cs:last-child { border-right:none; }
-    .cs-n { font-family:'DM Serif Display',serif; font-size:34px; color:var(--navy); line-height:1; margin-bottom:5px; }
-    .cs-n.good { color:var(--green); }
-    .cs-l { font-size:13px; color:var(--muted); line-height:1.4; }
-    .qtext { font-family:'DM Serif Display',serif; font-size:20px; color:var(--navy); line-height:1.65; font-style:italic; margin-bottom:20px; }
-    .qattr { display:flex; align-items:center; gap:14px; }
-    .avatar { width:42px; height:42px; border-radius:50%; background:var(--teal); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:#fff; flex-shrink:0; }
-    .qname { font-size:14px; font-weight:700; color:var(--navy); }
-    .qloc { font-size:13px; color:var(--muted); margin-top:2px; }
+    /* BENEFITS */
+    .benefits-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .benefit { padding:26px; border:1px solid var(--border); border-radius:14px; background:#fff; transition:border-color .2s; }
+    .benefit:hover { border-color:var(--teal); }
+    .benefit-icon { width:38px; height:38px; border-radius:9px; background:var(--blue-lt); display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+    .benefit-icon svg { width:19px; height:19px; }
+    .benefit-title { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+    .benefit-body { font-size:14px; color:var(--slate); line-height:1.7; }
 
     /* OBJECTIONS */
     .obj { border:1px solid var(--border); border-radius:12px; margin-bottom:10px; overflow:hidden; background:#fff; }
@@ -167,9 +142,9 @@
     /* PHONE CTA */
     .phone-cta { padding:88px 48px; text-align:center; background:var(--navy); }
     .phone-cta h2 { color:#fff; margin-bottom:14px; }
-    .phone-cta .ssub { color:rgba(255,255,255,.6); max-width:480px; margin-left:auto; margin-right:auto; }
-    .phone-number { font-family:'DM Serif Display',serif; font-size:56px; color:var(--teal); letter-spacing:2px; margin:28px 0 12px; line-height:1; }
-    .phone-desc { font-size:15px; color:rgba(255,255,255,.5); margin-bottom:32px; }
+    .cta-sub { font-size:17px; color:rgba(255,255,255,.6); max-width:480px; margin:0 auto 28px; line-height:1.7; }
+    .phone-number { font-family:'DM Serif Display',serif; font-size:56px; color:var(--teal); letter-spacing:2px; margin:0 0 10px; line-height:1; }
+    .phone-desc { font-size:14px; color:rgba(255,255,255,.4); margin-bottom:32px; }
     .btn-teal-pill { padding:14px 32px; border-radius:30px; border:none; background:var(--teal); color:#fff; font-size:15px; font-weight:700; font-family:'DM Sans',sans-serif; cursor:pointer; transition:background .2s; }
     .btn-teal-pill:hover { background:#008f8f; }
     .phone-fine { font-size:13px; color:rgba(255,255,255,.3); margin-top:16px; }
@@ -185,19 +160,10 @@
       .nav-links { display:none; }
       h1 { font-size:38px; }
       .hero { padding:60px 20px 52px; }
-      .phone-hero { margin-top:36px; padding:24px 20px; }
-      .phone-hero-number { font-size:34px; }
-      .stats { flex-direction:column; }
-      .stat { border-right:none; border-bottom:1px solid var(--border); }
-      .stat:last-child { border-bottom:none; }
+      .phone-strip { padding:18px 20px; flex-direction:column; gap:6px; text-align:center; }
       .section { padding:60px 20px; }
-      .dz-grid, .steps { grid-template-columns:1fr; }
+      .dz-grid, .steps, .benefits-grid { grid-template-columns:1fr; }
       .pair, .pair.flip { grid-template-columns:1fr; gap:28px; direction:ltr; }
-      .ba-wrap { grid-template-columns:1fr; }
-      .ba-arrow { transform:rotate(90deg); }
-      .case-stats { grid-template-columns:1fr 1fr; }
-      .cs:nth-child(2) { border-right:none; }
-      .cs:nth-child(3) { border-top:1px solid var(--border); }
       h2 { font-size:30px; }
       .pullquote { text-align:left; padding:24px; }
       .phone-cta { padding:60px 20px; }
@@ -234,27 +200,23 @@
   </div>
   <p class="hero-fine">Call <strong>(561) 944-9490</strong> right now. That is the AI.</p>
 
-  <div class="phone-hero">
-    <div class="phone-hero-label">Try it right now</div>
-    <div class="phone-hero-number">(561) 944-9490</div>
-    <div class="phone-hero-sub">Call this number and hear exactly <strong>what your patients will hear.</strong></div>
+  <div class="hero-frame">
+    <div class="frame-bar">
+      <div class="fdot" style="background:#FF5F57"></div>
+      <div class="fdot" style="background:#FEBC2E"></div>
+      <div class="fdot" style="background:#28C840"></div>
+      <div class="furl">AI Voice Agent &mdash; PatientEngage</div>
+    </div>
+    <img src="screenshots/ss_ava_01_dashboard.png" alt="PatientEngage AI Voice Agent dashboard">
   </div>
+  <p class="hero-cap"><strong>Every call answered. Every call documented.</strong> The dashboard shows you exactly what happened on every call, without listening to a single recording.</p>
 </section>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat">
-    <div class="stat-n zero">0</div>
-    <div class="stat-l">missed calls since launch<br>at active practices</div>
-  </div>
-  <div class="stat">
-    <div class="stat-n">84%</div>
-    <div class="stat-l">of calls handled<br>completely off-hours</div>
-  </div>
-  <div class="stat">
-    <div class="stat-n">4:34</div>
-    <div class="stat-l">average call duration<br>full intake conversations</div>
-  </div>
+<!-- PHONE STRIP -->
+<div class="phone-strip">
+  <span class="phone-strip-label">Try it right now</span>
+  <span class="phone-strip-number">(561) 944-9490</span>
+  <span class="phone-strip-sub">Call this number and hear exactly what your patients will hear</span>
 </div>
 
 <!-- THE PROBLEM -->
@@ -300,6 +262,7 @@
     <div class="eyebrow">How it works</div>
     <h2>Three things happen automatically, on every call.</h2>
     <p class="ssub">Whether it is 7am, 1pm, or 11pm on a Sunday.</p>
+
     <div class="steps">
       <div class="step">
         <div class="step-n">Step 1</div>
@@ -318,90 +281,108 @@
       </div>
     </div>
 
+    <!-- Call transcript screenshot -->
     <div class="pair">
       <div class="pframe">
-        <img src="screenshots/ss_ava_01_dashboard.png" alt="AI Voice Agent dashboard showing zero missed calls">
+        <img src="screenshots/ss_ava_05_call_detail.png" alt="AI Voice Agent call detail showing full transcript and sentiment">
       </div>
       <div class="ptext">
-        <h3>Missed Calls: 0.</h3>
-        <p>This is what the dashboard looks like when the AI Voice Agent is running. The Missed Calls metric tracks every call that went unanswered, a busy signal, or a hangup before the AI responded.</p>
-        <p>At every active practice in the network, that number is zero. Not reduced. Zero.</p>
-        <span class="proof-pill green">Zero missed calls across all active practices</span>
+        <h3>Every call transcribed, summarized, and scored.</h3>
+        <p>Every call the AI handles is recorded, transcribed, and summarized automatically. The practice manager can review any call in seconds by reading the AI-generated summary, without listening to a single recording.</p>
+        <p>Sentiment is scored per call: Positive, Neutral, or Negative. Your practice now has complete visibility into every patient phone interaction, with no additional work from your staff.</p>
+        <span class="proof-pill">Full transcript and sentiment on every call</span>
       </div>
     </div>
 
+    <!-- Settings screenshot -->
     <div class="pair flip">
       <div class="ptext">
-        <h3>Every call documented. No listening required.</h3>
-        <p>Every call is recorded, transcribed, and summarized automatically. The practice manager can review any call in seconds by reading the AI summary, without listening to a single recording.</p>
-        <p>Sentiment is scored per call: Positive, Neutral, or Negative. Your practice now has complete visibility into every patient phone interaction, with no additional work.</p>
-        <span class="proof-pill">Full transcript and sentiment on every call</span>
+        <h3>Configure once. Run forever.</h3>
+        <p>Set your hours, your transfer numbers, and which phone lines the AI covers. The AI runs 24/7 by default, or you can configure it for after-hours and overflow only.</p>
+        <p>Apply the AI to your main line, a Google tracking number, a campaign number, or any combination. Each number is toggled independently, so you stay in complete control of call routing.</p>
+        <span class="proof-pill">24/7 default &middot; Custom hours available</span>
       </div>
       <div class="pframe">
-        <img src="screenshots/ss_ava_05_call_detail.png" alt="AI Voice Agent call detail showing transcript and sentiment scoring">
+        <img src="screenshots/ss_ava_06_settings.png" alt="AI Voice Agent settings showing 24/7 configuration and transfer options">
       </div>
     </div>
   </div>
 </section>
 
-<!-- BEFORE/AFTER -->
+<!-- BENEFITS -->
 <section class="section">
   <div class="si">
-    <div class="eyebrow">Real results</div>
-    <h2>Before the AI. After the AI.</h2>
-    <p class="ssub">One independent optometry practice in Ida Grove, IA entered their baseline at setup. Here is what happened.</p>
+    <div class="eyebrow">What you get</div>
+    <h2>Built for the way optometry practices actually run.</h2>
+    <p class="ssub">Not a generic answering service. Not a phone tree. A voice agent that understands optometry scheduling and works inside your existing workflow.</p>
 
-    <div class="ba-wrap">
-      <div class="ba-card before">
-        <div class="ba-label">Before AI Voice Agent</div>
-        <div class="ba-number">18%</div>
-        <div class="ba-desc">of all inbound calls were going unanswered. Nearly 1 in 5 patients who called never got through.</div>
-      </div>
-      <div class="ba-card after">
-        <div class="ba-label">After AI Voice Agent</div>
-        <div class="ba-number">0%</div>
-        <div class="ba-desc">missed calls. Every call answered. Every patient got a response. No exceptions.</div>
-      </div>
-    </div>
-
-    <div class="case">
-      <div class="case-stats">
-        <div class="cs"><div class="cs-n good">0%</div><div class="cs-l">missed calls<br>after launch</div></div>
-        <div class="cs"><div class="cs-n">84%</div><div class="cs-l">of calls handled<br>completely off-hours</div></div>
-        <div class="cs"><div class="cs-n">43</div><div class="cs-l">total calls handled<br>Q1 2026</div></div>
-        <div class="cs"><div class="cs-n">4:34</div><div class="cs-l">average call<br>duration</div></div>
-      </div>
-      <p class="qtext">"I did not realize how many calls we were missing. I thought we were covered. Then I saw the number. Almost one in five calls was going unanswered. Those are patients who called us, did not get through, and found someone else. We had no idea."</p>
-      <div class="qattr">
-        <div class="avatar">IG</div>
-        <div>
-          <div class="qname">Independent optometry practice</div>
-          <div class="qloc">Ida Grove, IA &middot; Running 24/7 on one dedicated line</div>
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 19 19" fill="none" stroke="#1B5FA8" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="9.5" cy="9.5" r="7.5"/><path d="M9.5 6v4l2.5 2"/>
+          </svg>
         </div>
+        <div class="benefit-title">Available 168 hours a week</div>
+        <div class="benefit-body">Your front desk is available roughly 40 hours a week. The AI covers the other 128, including every lunch hour, every evening, every weekend, and every holiday, without overtime and without sick days.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 19 19" fill="none" stroke="#1B5FA8" stroke-width="1.5" stroke-linecap="round">
+            <path d="M3 5h13M3 9.5h8M3 14h5"/>
+          </svg>
+        </div>
+        <div class="benefit-title">Complete intake on every call</div>
+        <div class="benefit-body">Name, date of birth, phone number, and insurance status collected in conversation, read back for accuracy, and submitted with the appointment request. Staff have everything they need before the patient walks in.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 19 19" fill="none" stroke="#1B5FA8" stroke-width="1.5" stroke-linecap="round">
+            <path d="M9.5 2l2 5h5l-4 3 1.5 5L9.5 12l-4.5 3L6.5 10 2.5 7h5z"/>
+          </svg>
+        </div>
+        <div class="benefit-title">Proactive multi-intent handling</div>
+        <div class="benefit-body">The AI leads with eye exam bookings, then asks about other needs before handing off. A patient calling about glasses pickup might also need a family member scheduled. The AI asks. Your front desk rarely thinks to.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 19 19" fill="none" stroke="#1B5FA8" stroke-width="1.5" stroke-linecap="round">
+            <rect x="2" y="3" width="15" height="13" rx="2"/><path d="M2 7h15"/>
+          </svg>
+        </div>
+        <div class="benefit-title">Works inside your existing workflow</div>
+        <div class="benefit-body">Appointment requests go into your PatientEngage Scheduler queue exactly like web bookings. Same approval workflow. Same EHR writeback. Same notification rules. Nothing new for staff to learn.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 19 19" fill="none" stroke="#00A3A3" stroke-width="1.5" stroke-linecap="round">
+            <path d="M9.5 2C5.36 2 2 5.36 2 9.5S5.36 17 9.5 17 17 13.64 17 9.5"/><path d="M13 2l2 2-2 2M15 4H9"/>
+          </svg>
+        </div>
+        <div class="benefit-title">Graceful transfers when needed</div>
+        <div class="benefit-body">Any patient who wants to speak with a staff member is transferred immediately, cold or warm. The AI announces the caller and the reason before connecting. No one is trapped in a loop. No call is dropped.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 19 19" fill="none" stroke="#00A3A3" stroke-width="1.5" stroke-linecap="round">
+            <path d="M2 9.5l5 5L17 4"/>
+          </svg>
+        </div>
+        <div class="benefit-title">It does not replace your staff. It backs them up.</div>
+        <div class="benefit-body">The AI runs parallel to your front desk. During business hours it handles overflow. During lunch and after hours it handles everything. Your staff do the work only a human can do. The AI does the rest.</div>
       </div>
     </div>
 
+    <!-- Call log screenshot -->
     <div class="pair" style="margin-top:56px">
       <div class="ptext">
-        <h3>84% of calls come in when no one is available to answer.</h3>
-        <p>At this practice, 36 of 43 total calls in Q1 2026 came in off-hours, before the office opened, during lunch, or after 5pm. Without the AI, 84% of their call volume would have gone to voicemail.</p>
-        <p>Most would not have called back. The practice would never have known they called.</p>
-        <span class="proof-pill">84% off-hours call volume — observed Q1 2026</span>
+        <h3>See every call. Review in seconds.</h3>
+        <p>The call log shows every call handled by the AI: date, time, duration, call type, and outcome. Click any call to see the full transcript and AI summary.</p>
+        <p>No more wondering what happened on a call. No more listening to recordings to find out why a patient did not book. The AI documents everything automatically.</p>
+        <span class="proof-pill">Full call log with CSV export</span>
       </div>
       <div class="pframe">
-        <img src="screenshots/ss_ava_03_heatmap.png" alt="Call volume heatmap showing heavy off-hours activity">
-      </div>
-    </div>
-
-    <div class="pair flip" style="margin-top:56px">
-      <div class="ptext">
-        <h3>Booked before the office opens.</h3>
-        <p>Calls at 7:17am. 7:28am. 7:33am. All handled. All documented. All appointment requests submitted before a single staff member arrived at work.</p>
-        <p>These patients did not fill out a form and wait. They called, got an immediate response, and had their appointment booked before breakfast.</p>
-        <span class="proof-pill">Early morning bookings — observed call log</span>
-      </div>
-      <div class="pframe">
-        <img src="screenshots/ss_ava_04_call_log.png" alt="Call log showing early morning bookings before office opens">
+        <img src="screenshots/ss_ava_04_call_log.png" alt="AI Voice Agent call log showing call history">
       </div>
     </div>
   </div>
@@ -457,9 +438,9 @@
           <tr><td>EHR integration</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>Partial</td><td>Yes</td></tr>
           <tr><td>Built for optometry</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
           <tr><td>Call analytics and heatmap</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>Partial</td><td>No</td></tr>
-          <tr><td>Before/after baseline</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><td>Per-call transcript and summary</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
           <tr><td>Sentiment scoring</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
-          <tr><td>Per-number attribution</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><td>Per-number source attribution</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
           <tr><td>HIPAA compliant</td><td class="pe win">Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
         </tbody>
       </table>
@@ -470,12 +451,12 @@
 <!-- CTA -->
 <section class="phone-cta" id="cta">
   <h2>Hear it before you decide.</h2>
-  <p class="ssub">Call this number right now. That is the AI. Same voice. Same experience. Exactly what your patients will hear.</p>
+  <p class="cta-sub">Call this number right now. That is the AI. Same voice. Same experience. Exactly what your patients will hear.</p>
   <div class="phone-number">(561) 944-9490</div>
   <p class="phone-desc">Live demo line &middot; Available 24/7 &middot; No appointment needed</p>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
     <button class="btn-teal-pill">Book a full demo</button>
-    <button class="btn-ghost-pill" style="border-color:rgba(255,255,255,.2);color:#fff">Sign up now</button>
+    <button class="btn-ghost-pill">Sign up now</button>
   </div>
   <p class="phone-fine">Free 14-day trial &middot; No credit card &middot; Setup in one day</p>
 </section>
