@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PatientEngage | New Patient Acquisition for Optometry Practices</title>
+  <meta name="description" content="PatientEngage helps optometry practices capture, book, and retain more patients. Real-Time Scheduler, AI Voice Agent, Google Reserve, and automated recalls.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:    #0F2A4A;
+      --blue:    #1B5FA8;
+      --teal:    #00A3A3;
+      --green:   #0F6E56;
+      --green-bg:#F0FDF9;
+      --green-bd:#A7F3D0;
+      --slate:   #4B6278;
+      --muted:   #7A96A8;
+      --border:  #E2E8F0;
+      --bg:      #F8FAFC;
+      --blue-lt: #EEF4FF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'DM Sans',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; font-size:17px; line-height:1.65; }
+
+    /* NAV */
+    nav { display:flex; align-items:center; justify-content:space-between; padding:18px 48px; background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; }
+    .nav-logo { font-size:17px; font-weight:800; color:var(--navy); text-decoration:none; letter-spacing:-.3px; }
+    .nav-links { display:flex; gap:28px; list-style:none; }
+    .nav-links a { font-size:14px; color:var(--muted); text-decoration:none; transition:color .2s; }
+    .nav-links a:hover { color:var(--navy); }
+    .nav-links .active { color:var(--navy); font-weight:600; border-bottom:2px solid var(--teal); padding-bottom:2px; }
+    .nav-actions { display:flex; gap:8px; }
+    .btn-outline { padding:9px 22px; border-radius:30px; border:1.5px solid var(--border); background:#fff; color:var(--navy); font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif; cursor:pointer; transition:border-color .2s; }
+    .btn-outline:hover { border-color:var(--navy); }
+    .btn-dark { padding:9px 22px; border-radius:30px; border:none; background:var(--navy); color:#fff; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif; cursor:pointer; transition:background .2s; }
+    .btn-dark:hover { background:#1a3d6b; }
+
+    /* HERO */
+    .hero { padding:100px 48px 80px; text-align:center; }
+    .badge { display:inline-flex; align-items:center; gap:7px; padding:6px 18px; background:var(--green-bg); border:1px solid var(--green-bd); border-radius:30px; font-size:13px; font-weight:600; color:var(--green); margin-bottom:24px; }
+    .badge-dot { width:7px; height:7px; border-radius:50%; background:var(--green); }
+    h1 { font-family:'DM Serif Display',serif; font-size:60px; font-weight:400; color:var(--navy); line-height:1.08; letter-spacing:-.5px; margin-bottom:22px; max-width:760px; margin-left:auto; margin-right:auto; }
+    h1 em { font-style:italic; color:var(--teal); }
+    .hero-sub { font-size:19px; color:var(--slate); line-height:1.7; max-width:580px; margin:0 auto 36px; }
+    .hero-cta { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
+    .btn-navy-pill { padding:14px 32px; border-radius:30px; border:none; background:var(--navy); color:#fff; font-size:15px; font-weight:700; font-family:'DM Sans',sans-serif; cursor:pointer; transition:background .2s; }
+    .btn-navy-pill:hover { background:#1a3d6b; }
+    .btn-ghost-pill { padding:14px 32px; border-radius:30px; border:1.5px solid var(--border); background:#fff; color:var(--navy); font-size:15px; font-weight:600; font-family:'DM Sans',sans-serif; cursor:pointer; transition:border-color .2s; }
+    .btn-ghost-pill:hover { border-color:var(--navy); }
+    .hero-fine { font-size:14px; color:var(--muted); }
+
+    /* STATS */
+    .stats { display:flex; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--bg); }
+    .stat { flex:1; padding:32px 24px; text-align:center; border-right:1px solid var(--border); }
+    .stat:last-child { border-right:none; }
+    .stat-n { font-family:'DM Serif Display',serif; font-size:42px; color:var(--navy); line-height:1; margin-bottom:7px; }
+    .stat-l { font-size:14px; color:var(--muted); line-height:1.5; }
+
+    /* LOGOS */
+    .logos { padding:28px 48px; text-align:center; border-bottom:1px solid var(--border); }
+    .logos p { font-size:14px; color:var(--muted); margin-bottom:16px; }
+    .logo-row { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+    .logo-pill { padding:7px 18px; border:1px solid var(--border); border-radius:30px; font-size:13px; font-weight:600; color:var(--muted); }
+
+    /* SECTIONS */
+    .section { padding:80px 48px; }
+    .section-alt { background:var(--bg); }
+    .si { max-width:960px; margin:0 auto; }
+    .eyebrow { font-size:12px; font-weight:700; color:var(--teal); letter-spacing:1.2px; text-transform:uppercase; margin-bottom:12px; }
+    h2 { font-family:'DM Serif Display',serif; font-size:40px; font-weight:400; color:var(--navy); line-height:1.15; margin-bottom:12px; letter-spacing:-.3px; }
+    .ssub { font-size:17px; color:var(--slate); line-height:1.75; max-width:560px; margin-bottom:44px; }
+    .section-center { text-align:center; }
+    .section-center .ssub { margin-left:auto; margin-right:auto; }
+
+    /* FEATURE CARDS */
+    .features-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .feature-card {
+      padding:40px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:#fff;
+      transition:border-color .2s, box-shadow .2s;
+      text-decoration:none;
+      display:block;
+    }
+    .feature-card:hover {
+      border-color:var(--teal);
+      box-shadow:0 8px 32px rgba(15,42,74,.08);
+    }
+    .fc-eyebrow { font-size:11px; font-weight:700; color:var(--teal); letter-spacing:1px; text-transform:uppercase; margin-bottom:14px; }
+    .fc-title { font-family:'DM Serif Display',serif; font-size:28px; font-weight:400; color:var(--navy); line-height:1.2; margin-bottom:12px; }
+    .fc-body { font-size:15px; color:var(--slate); line-height:1.7; margin-bottom:20px; }
+    .fc-stat { display:flex; gap:24px; margin-bottom:20px; }
+    .fc-stat-item {}
+    .fc-stat-n { font-family:'DM Serif Display',serif; font-size:28px; color:var(--navy); line-height:1; }
+    .fc-stat-l { font-size:12px; color:var(--muted); margin-top:4px; }
+    .fc-link { font-size:14px; font-weight:600; color:var(--teal); }
+
+    /* HOW IT WORKS */
+    .hw-grid { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:16px; }
+    .hw-card { padding:28px; border:1px solid var(--border); border-radius:14px; background:#fff; text-align:center; transition:border-color .2s; }
+    .hw-card:hover { border-color:var(--teal); }
+    .hw-icon { width:48px; height:48px; border-radius:50%; background:var(--green-bg); border:1px solid var(--green-bd); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:20px; }
+    .hw-title { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+    .hw-body { font-size:14px; color:var(--slate); line-height:1.65; }
+
+    /* PULLQUOTE */
+    .pullquote { background:var(--navy); border-radius:14px; padding:40px 48px; text-align:center; max-width:800px; margin:0 auto; }
+    .pullquote p { font-family:'DM Serif Display',serif; font-size:24px; color:#fff; line-height:1.5; font-style:italic; margin-bottom:14px; }
+    .pullquote span { font-size:14px; color:var(--muted); }
+
+    /* CTA */
+    .cta { padding:88px 48px; text-align:center; background:var(--bg); border-top:1px solid var(--border); }
+    .cta h2 { margin-bottom:14px; }
+    .cta-sub { font-size:17px; color:var(--slate); margin-bottom:32px; line-height:1.7; }
+    .cta-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .btn-teal-pill { padding:14px 32px; border-radius:30px; border:none; background:var(--teal); color:#fff; font-size:15px; font-weight:700; font-family:'DM Sans',sans-serif; cursor:pointer; transition:background .2s; }
+    .btn-teal-pill:hover { background:#008f8f; }
+    .cta-fine { font-size:14px; color:var(--muted); margin-top:18px; }
+    .cta-fine a { color:var(--blue); text-decoration:underline; cursor:pointer; }
+
+    /* FOOTER */
+    footer { padding:24px 48px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); }
+    .flogo { font-size:16px; font-weight:800; color:var(--navy); }
+    .fcopy { font-size:13px; color:var(--muted); }
+
+    /* RESPONSIVE */
+    @media (max-width:768px) {
+      nav { padding:16px 20px; }
+      .nav-links { display:none; }
+      h1 { font-size:38px; }
+      .hero { padding:60px 20px 52px; }
+      .hero-sub { font-size:17px; }
+      .stats { flex-direction:column; }
+      .stat { border-right:none; border-bottom:1px solid var(--border); }
+      .stat:last-child { border-bottom:none; }
+      .logos { padding:24px 20px; }
+      .section { padding:60px 20px; }
+      .features-grid { grid-template-columns:1fr; }
+      .hw-grid { grid-template-columns:1fr 1fr; }
+      h2 { font-size:30px; }
+      .pullquote { padding:28px 24px; }
+      .pullquote p { font-size:20px; }
+      .cta { padding:60px 20px; }
+      footer { flex-direction:column; gap:8px; padding:20px; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">PatientEngage</a>
+  <ul class="nav-links">
+    <li><a href="/scheduler">Real-Time Scheduler</a></li>
+    <li><a href="/ai-voice-agent">AI Voice Agent</a></li>
+    <li><a href="/google-reserve">Google Reserve</a></li>
+    <li><a href="/reminders">Reminders</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-outline">Sign in</button>
+    <button class="btn-dark">Get started</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">
+    <span class="badge-dot"></span>
+    Serving 2,500+ optometry practices across the US
+  </div>
+  <h1>The patient acquisition platform built for <em>independent optometry.</em></h1>
+  <p class="hero-sub">PatientEngage captures new patients from Google, your website, and the phone. It books them instantly, writes to your EHR automatically, and brings overdue patients back. All without adding work to your front desk.</p>
+  <div class="hero-cta">
+    <button class="btn-navy-pill">Book a live demo</button>
+    <button class="btn-ghost-pill">Watch 2-min overview</button>
+  </div>
+  <p class="hero-fine">Free 14-day trial &middot; No credit card &middot; Setup in one day</p>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-n">2,500+</div>
+    <div class="stat-l">optometry practices<br>across the US</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">7,500+</div>
+    <div class="stat-l">appointments booked<br>online every month</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">6</div>
+    <div class="stat-l">EHR integrations<br>with auto writeback</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">1 day</div>
+    <div class="stat-l">average setup time<br>no IT required</div>
+  </div>
+</div>
+
+<!-- LOGOS -->
+<div class="logos">
+  <p>Independent optometry practices across the US trust PatientEngage</p>
+  <div class="logo-row">
+    <span class="logo-pill">Forney Eye Associates</span>
+    <span class="logo-pill">Advanced Eyecare Center</span>
+    <span class="logo-pill">Lowcountry Eye Care</span>
+    <span class="logo-pill">Towne Lake Eye Associates</span>
+    <span class="logo-pill">SeaShore House Opt.</span>
+    <span class="logo-pill">+ hundreds more</span>
+  </div>
+</div>
+
+<!-- PLATFORM -->
+<section class="section section-center">
+  <div class="si">
+    <div class="eyebrow">The platform</div>
+    <h2>Four products. One goal: more patients, less work.</h2>
+    <p class="ssub">Each product works on its own. Together, they cover every way a patient finds, books, and returns to your practice.</p>
+
+    <div class="features-grid">
+      <a href="/scheduler" class="feature-card">
+        <div class="fc-eyebrow">Capture</div>
+        <div class="fc-title">Real-Time Scheduler</div>
+        <div class="fc-body">Patients book real appointment slots from your live EHR on your website, anytime, on any device. Instant confirmation. Automatic EHR writeback. Zero staff intervention.</div>
+        <div class="fc-stat">
+          <div class="fc-stat-item">
+            <div class="fc-stat-n">7,500+</div>
+            <div class="fc-stat-l">bookings/month</div>
+          </div>
+          <div class="fc-stat-item">
+            <div class="fc-stat-n">89%</div>
+            <div class="fc-stat-l">confirmation rate</div>
+          </div>
+        </div>
+        <div class="fc-link">Learn about the Scheduler &#8594;</div>
+      </a>
+
+      <a href="/ai-voice-agent" class="feature-card">
+        <div class="fc-eyebrow">Answer</div>
+        <div class="fc-title">AI Voice Agent</div>
+        <div class="fc-body">An AI-powered voice agent that answers every call to your practice, 24/7. Full appointment intake, natural conversation, instant transfer to staff when needed. No more missed calls.</div>
+        <div class="fc-stat">
+          <div class="fc-stat-item">
+            <div class="fc-stat-n">24/7</div>
+            <div class="fc-stat-l">call coverage</div>
+          </div>
+          <div class="fc-stat-item">
+            <div class="fc-stat-n">100%</div>
+            <div class="fc-stat-l">calls answered</div>
+          </div>
+        </div>
+        <div class="fc-link">Learn about the Voice Agent &#8594;</div>
+      </a>
+
+      <a href="/google-reserve" class="feature-card">
+        <div class="fc-eyebrow">Reach</div>
+        <div class="fc-title">Google Reserve</div>
+        <div class="fc-body">A "Book online" button directly on your Google Business Profile in Search and Maps. Patients book without ever visiting your website. Included with every Scheduler plan.</div>
+        <div class="fc-stat">
+          <div class="fc-stat-item">
+            <div class="fc-stat-n">134</div>
+            <div class="fc-stat-l">bookings/month</div>
+          </div>
+          <div class="fc-stat-item">
+            <div class="fc-stat-n">4.2%</div>
+            <div class="fc-stat-l">conversion rate</div>
+          </div>
+        </div>
+        <div class="fc-link">Learn about Google Reserve &#8594;</div>
+      </a>
+
+      <a href="/reminders" class="feature-card">
+        <div class="fc-eyebrow">Retain</div>
+        <div class="fc-title">Recalls &amp; Reminders</div>
+        <div class="fc-body">Automated text and email outreach to overdue patients. PatientEngage reads your EHR nightly, identifies who is due, and contacts them. 31% return within 60 days.</div>
+        <div class="fc-stat">
+          <div class="fc-stat-item">
+            <div class="fc-stat-n">31%</div>
+            <div class="fc-stat-l">return rate</div>
+          </div>
+          <div class="fc-stat-item">
+            <div class="fc-stat-n">$4.2K</div>
+            <div class="fc-stat-l">recovered/month</div>
+          </div>
+        </div>
+        <div class="fc-link">Learn about Reminders &#8594;</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-alt section-center">
+  <div class="si">
+    <div class="eyebrow">How it works</div>
+    <h2>One platform. Every patient touchpoint covered.</h2>
+    <p class="ssub">From the moment a patient searches Google to the day they are due for their next visit, PatientEngage is working.</p>
+    <div class="hw-grid">
+      <div class="hw-card">
+        <div class="hw-icon">1</div>
+        <div class="hw-title">Patient finds you</div>
+        <div class="hw-body">On Google Search, Google Maps, or your website. Google Reserve and the Scheduler are there, ready to capture them.</div>
+      </div>
+      <div class="hw-card">
+        <div class="hw-icon">2</div>
+        <div class="hw-title">They book instantly</div>
+        <div class="hw-body">Real EHR slots. Instant confirmation. Full intake captured at booking. No staff intervention required.</div>
+      </div>
+      <div class="hw-card">
+        <div class="hw-icon">3</div>
+        <div class="hw-title">Or they call</div>
+        <div class="hw-body">The AI Voice Agent answers, conducts full intake, and submits the appointment. 24/7, including lunch hours and weekends.</div>
+      </div>
+      <div class="hw-card">
+        <div class="hw-icon">4</div>
+        <div class="hw-title">They come back</div>
+        <div class="hw-body">Recalls and Reminders contact overdue patients automatically. Text and email. One-tap rebooking link. 31% return.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="section section-center">
+  <div class="si">
+    <div class="pullquote">
+      <p>"We did not hire more staff. We did not change how we run the practice. We turned on PatientEngage and the schedule started filling itself."</p>
+      <span>Independent optometry practice owner &middot; PatientEngage customer since 2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>See it working in your practice.</h2>
+  <p class="cta-sub">No credit card. No commitment. No IT required.<br>We set it up in a day and you see results within the first week.</p>
+  <div class="cta-btns">
+    <button class="btn-teal-pill">Book a live demo</button>
+    <button class="btn-ghost-pill">Sign up now</button>
+  </div>
+  <p class="cta-fine">Free 14-day trial &middot; No credit card &middot; Setup in one day &middot; Or <a>talk to us first</a></p>
+</section>
+
+<footer>
+  <span class="flogo">PatientEngage</span>
+  <span class="fcopy">&copy; 2026 &middot; patientengage.ai</span>
+</footer>
+
+</body>
+</html>
