@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2-Way Text Messaging for Optometry Practices | PatientEngage</title>
+  <meta name="description" content="Every missed call is a missed patient. Give patients the fastest way to reach your practice with HIPAA-compliant 2-way texting — included in your marketing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:    #0F2A4A;
+      --blue:    #1B5FA8;
+      --teal:    #00A3A3;
+      --green:   #0F6E56;
+      --green-bg:#F0FDF9;
+      --green-bd:#A7F3D0;
+      --slate:   #4B6278;
+      --muted:   #7A96A8;
+      --border:  #E2E8F0;
+      --bg:      #F8FAFC;
+      --blue-lt: #EEF4FF;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--navy);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo { font-size: 17px; font-weight: 800; color: var(--navy); text-decoration: none; letter-spacing: -.3px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links .active { color: var(--navy); font-weight: 600; border-bottom: 2px solid var(--teal); padding-bottom: 2px; }
+    .nav-actions { display: flex; gap: 8px; }
+    .btn-outline { padding: 9px 22px; border-radius: 30px; border: 1.5px solid var(--border); background: #fff; color: var(--navy); font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: border-color .2s; }
+    .btn-outline:hover { border-color: var(--navy); }
+    .btn-dark { padding: 9px 22px; border-radius: 30px; border: none; background: var(--navy); color: #fff; font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background .2s; }
+    .btn-dark:hover { background: #1a3d6b; }
+
+    /* HERO */
+    .hero { padding: 88px 48px 72px; text-align: center; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 18px;
+      background: var(--green-bg);
+      border: 1px solid var(--green-bd);
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 24px;
+    }
+    .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 56px;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.08;
+      letter-spacing: -.5px;
+      margin-bottom: 20px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 em { font-style: italic; color: var(--teal); }
+    .hero-sub {
+      font-size: 19px;
+      color: var(--slate);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 30px;
+    }
+    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+    .btn-navy-pill { padding: 14px 32px; border-radius: 30px; border: none; background: var(--navy); color: #fff; font-size: 15px; font-weight: 700; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background .2s; }
+    .btn-navy-pill:hover { background: #1a3d6b; }
+    .btn-ghost-pill { padding: 14px 32px; border-radius: 30px; border: 1.5px solid var(--border); background: #fff; color: var(--navy); font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: border-color .2s; }
+    .btn-ghost-pill:hover { border-color: var(--navy); }
+    .hero-fine { font-size: 14px; color: var(--muted); margin-bottom: 56px; }
+
+    .hero-frame {
+      max-width: 700px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 48px rgba(15,42,74,.12);
+    }
+    .frame-bar {
+      background: var(--bg);
+      padding: 11px 18px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .fdot { width: 10px; height: 10px; border-radius: 50%; }
+    .furl {
+      background: #EDF2F7;
+      border-radius: 5px;
+      padding: 4px 16px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: 12px;
+      flex: 1;
+      max-width: 340px;
+      text-align: center;
+    }
+    .hero-frame img { width: 100%; display: block; }
+    .hero-cap {
+      font-size: 15px;
+      color: var(--slate);
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.6;
+    }
+    .hero-cap strong { color: var(--navy); }
+
+    /* STATS */
+    .stats {
+      display: flex;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .stat { flex: 1; padding: 32px 24px; text-align: center; border-right: 1px solid var(--border); }
+    .stat:last-child { border-right: none; }
+    .stat-n {
+      font-family: 'DM Serif Display', serif;
+      font-size: 42px;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+    .stat-l { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+    /* LOGOS */
+    .logos {
+      padding: 28px 48px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .logos p { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+    .logo-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .logo-pill {
+      padding: 7px 18px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    /* SECTIONS */
+    .section { padding: 80px 48px; }
+    .section-alt { background: var(--bg); }
+    .si { max-width: 900px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: -.3px;
+    }
+    .ssub {
+      font-size: 17px;
+      color: var(--slate);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 44px;
+    }
+
+    /* BEFORE STATES / PROBLEM CARDS */
+    .before-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+    .bc { padding: 26px; border-radius: 14px; border: 1px solid var(--border); background: #fff; }
+    .bc.hl { border-color: #FECACA; background: #FEF9F9; }
+    .btag {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      background: var(--bg);
+      color: var(--muted);
+    }
+    .btag.bad { background: #FEE2E2; color: #DC2626; }
+    .btitle { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .bbody { font-size: 14px; color: var(--slate); line-height: 1.7; }
+
+    .pullquote {
+      background: var(--navy);
+      border-radius: 14px;
+      padding: 32px 40px;
+      text-align: right;
+    }
+    .pullquote p {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: #fff;
+      line-height: 1.5;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .pullquote span { font-size: 14px; color: var(--muted); }
+
+    /* STEPS */
+    .steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .step { padding: 26px; border: 1px solid var(--border); border-radius: 14px; background: #fff; transition: border-color .2s; }
+    .step:hover { border-color: var(--teal); }
+    .step-n { font-size: 12px; font-weight: 700; color: var(--teal); margin-bottom: 10px; letter-spacing: .3px; }
+    .step-t { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .step-b { font-size: 14px; color: var(--slate); line-height: 1.7; }
+
+    /* PAIRS */
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-top: 56px; }
+    .pair.flip { direction: rtl; }
+    .pair.flip > * { direction: ltr; }
+    .pframe {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 28px rgba(15,42,74,.09);
+    }
+    .pframe img { width: 100%; display: block; }
+    .ptext h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .ptext p { font-size: 15px; color: var(--slate); line-height: 1.75; margin-bottom: 14px; }
+    .proof-pill {
+      display: inline-block;
+      padding: 5px 16px;
+      background: var(--blue-lt);
+      color: var(--blue);
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* CASE STUDY */
+    .case {
+      background: linear-gradient(135deg, #F0F7FF, #F0FDFB);
+      border: 1px solid #DBEAFE;
+      border-radius: 16px;
+      padding: 40px;
+    }
+    .case-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      margin: 22px 0 32px;
+    }
+    .cs { padding: 20px 14px; text-align: center; border-right: 1px solid var(--border); }
+    .cs:last-child { border-right: none; }
+    .cs-n {
+      font-family: 'DM Serif Display', serif;
+      font-size: 34px;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    .cs-l { font-size: 13px; color: var(--muted); line-height: 1.4; }
+    .qtext {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--navy);
+      line-height: 1.65;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .qattr { display: flex; align-items: center; gap: 14px; }
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .qname { font-size: 14px; font-weight: 700; color: var(--navy); }
+    .qloc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+    /* OBJECTIONS / FAQ */
+    .obj {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .obj-q {
+      padding: 18px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background .15s;
+      user-select: none;
+      line-height: 1.4;
+    }
+    .obj-q:hover { background: var(--bg); }
+    .arr { color: var(--muted); font-size: 20px; transition: transform .2s; flex-shrink: 0; margin-left: 16px; }
+    .obj-a {
+      padding: 0 24px 20px;
+      font-size: 15px;
+      color: var(--slate);
+      line-height: 1.75;
+      display: none;
+    }
+    .obj.open .obj-a { display: block; }
+    .obj.open .arr { transform: rotate(180deg); }
+
+    /* TABLE */
+    .tw {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      overflow-x: auto;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    thead th {
+      padding: 15px 18px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    thead th:not(:first-child) { text-align: center; }
+    thead th.pe { background: var(--blue-lt); color: var(--blue); }
+    tbody td {
+      padding: 13px 18px;
+      border-bottom: 1px solid #F1F5F9;
+      color: var(--slate);
+      font-size: 14px;
+    }
+    tbody td:not(:first-child) { text-align: center; }
+    tbody td.pe { background: #F8FBFF; }
+    tbody td.win { color: var(--green); font-weight: 700; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: var(--bg); }
+    tbody tr:hover td.pe { background: var(--blue-lt); }
+    .tnote { font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+    /* RECALLS TEASER */
+    .rc-teaser {
+      margin-top: 56px;
+      padding: 28px 32px;
+      border: 1px solid var(--green-bd);
+      border-radius: 14px;
+      background: var(--green-bg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .rc-teaser-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+    .rc-teaser-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .rc-teaser-body { font-size: 14px; color: var(--slate); max-width: 500px; line-height: 1.65; }
+    .rc-link {
+      display: inline-block;
+      padding: 11px 24px;
+      border-radius: 30px;
+      border: 1.5px solid var(--green);
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .rc-link:hover { background: rgba(15,110,86,.08); }
+
+    /* CTA */
+    .cta {
+      padding: 88px 48px;
+      text-align: center;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .cta h2 { margin-bottom: 14px; }
+    .cta-sub { font-size: 17px; color: var(--slate); margin-bottom: 32px; line-height: 1.7; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-teal-pill {
+      padding: 14px 32px;
+      border-radius: 30px;
+      border: none;
+      background: var(--teal);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-teal-pill:hover { background: #008f8f; }
+    .cta-fine { font-size: 14px; color: var(--muted); margin-top: 18px; }
+    .cta-fine a { color: var(--blue); text-decoration: underline; cursor: pointer; }
+
+    /* FOOTER */
+    footer {
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+    }
+    .flogo { font-size: 16px; font-weight: 800; color: var(--navy); }
+    .fcopy { font-size: 13px; color: var(--muted); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      h1 { font-size: 38px; }
+      .hero { padding: 60px 20px 52px; }
+      .hero-sub { font-size: 17px; }
+      .stats { flex-direction: column; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+      .logos { padding: 24px 20px; }
+      .section { padding: 60px 20px; }
+      .before-grid, .steps { grid-template-columns: 1fr; }
+      .pair, .pair.flip { grid-template-columns: 1fr; gap: 28px; direction: ltr; }
+      .case-stats { grid-template-columns: 1fr 1fr; }
+      .cs:nth-child(2) { border-right: none; }
+      .cs:nth-child(3) { border-top: 1px solid var(--border); }
+      h2 { font-size: 30px; }
+      .pullquote { text-align: left; padding: 24px; }
+      .rc-teaser { flex-direction: column; }
+      .cta { padding: 60px 20px; }
+      footer { flex-direction: column; gap: 8px; padding: 20px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">PatientEngage</a>
+  <ul class="nav-links">
+    <li><a href="/scheduler">Real-Time Scheduler</a></li>
+    <li><a href="/text-messages" class="active">Text Messaging</a></li>
+    <li><a href="/ai-voice-agent">AI Voice Agent</a></li>
+    <li><a href="/reminders">Reminders</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-outline">Sign in</button>
+    <button class="btn-dark">Get started</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">
+    <span class="badge-dot"></span>
+    Included in all EyeCarePro marketing programs
+  </div>
+  <h1>Every missed call is a <em>missed patient.</em></h1>
+  <p class="hero-sub">Give patients the fastest way to reach your practice. 2-way texting that is already included in your marketing, with an 88% read rate across 278 practices.</p>
+  <div class="hero-cta">
+    <button class="btn-navy-pill">Start texting your patients today</button>
+    <button class="btn-ghost-pill">See how it works</button>
+  </div>
+  <p class="hero-fine">Already an EyeCarePro client? You may already have this included.</p>
+  <div class="hero-frame">
+    <div class="frame-bar">
+      <div class="fdot" style="background:#FF5F57"></div>
+      <div class="fdot" style="background:#FEBC2E"></div>
+      <div class="fdot" style="background:#28C840"></div>
+      <div class="furl">Text Us &mdash; Lakewood Eye Center</div>
+    </div>
+    <img src="/text-messages/screenshots/ss_textus_button.png" alt="Practice website with Text Us button for patient-initiated text messaging">
+  </div>
+  <p class="hero-cap"><strong>One button. Instant connection.</strong> Patients tap "Text Us" on your website and start a real conversation with your team.</p>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-n">14,327</div>
+    <div class="stat-l">texts sent across the<br>network in Q1 2026</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">88%</div>
+    <div class="stat-l">read rate across<br>278 practices</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">99%</div>
+    <div class="stat-l">read rate at our<br>top practice</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">15 min</div>
+    <div class="stat-l">setup time<br>no EHR mapping required</div>
+  </div>
+</div>
+
+<!-- LOGOS -->
+<div class="logos">
+  <p>Optometry practices across North America text their patients with PatientEngage</p>
+  <div class="logo-row">
+    <span class="logo-pill">Vista Eye Center</span>
+    <span class="logo-pill">Village Eye Centre</span>
+    <span class="logo-pill">Herkert Family Eye Care</span>
+    <span class="logo-pill">Prairie Eye Care</span>
+    <span class="logo-pill">+ 274 more</span>
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<section class="section">
+  <div class="si">
+    <div class="eyebrow">The problem</div>
+    <h2>Three ways your front desk loses patients before they ever walk in.</h2>
+    <p class="ssub">Each one looks different. All three end the same way: a patient who was ready to book just went somewhere else.</p>
+    <div class="before-grid">
+      <div class="bc hl">
+        <div class="btag bad">Most common</div>
+        <div class="btitle">Phone tag kills conversions.</div>
+        <div class="bbody">Patients call, get put on hold, and hang up. Your team calls back, gets voicemail. Nobody wins. Your front desk spends 15 to 20 hours a month in voicemail loops, and the patients who never leave a message simply call the next practice on Google.</div>
+      </div>
+      <div class="bc">
+        <div class="btag">Website visitors</div>
+        <div class="btitle">Your website visitors are leaving.</div>
+        <div class="bbody">A patient visits your site, has a question about insurance or frames, but does not want to call. Without a text option, they bounce. That visitor was ready to book. They just needed a faster way to get one quick answer.</div>
+      </div>
+      <div class="bc">
+        <div class="btag">Automation fatigue</div>
+        <div class="btitle">Automated texts feel impersonal.</div>
+        <div class="bbody">Patients are drowning in automated appointment reminders and chatbot replies. They want to text a real person, not a robot. When every message from your practice feels like it was sent by a machine, trust erodes and patients stop engaging.</div>
+      </div>
+    </div>
+    <div class="pullquote">
+      <p>"Once we turned on the Text Us button, patients started reaching out immediately. We handle half our patient questions over text now, and they love it."</p>
+      <span>Front desk lead &middot; Lakewood Eye Center</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-alt">
+  <div class="si">
+    <div class="eyebrow">How it works</div>
+    <h2>Three steps. Real conversations. No bots.</h2>
+    <p class="ssub">From first text to booked appointment, in minutes.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">Step 1</div>
+        <div class="step-t">Patient texts you</div>
+        <div class="step-b">They tap "Text Us" on your website or text your practice number directly. No app to download, no account to create. Just a text message, like they would send to a friend.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">Step 2</div>
+        <div class="step-t">Your team responds</div>
+        <div class="step-b">Staff see the message in the secure PatientEngage dashboard and reply in real time. They can manage five to ten text conversations in the time it takes to complete one phone call.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">Step 3</div>
+        <div class="step-t">The conversation converts</div>
+        <div class="step-b">Quick answers lead to booked appointments and happy patients. Insurance questions, frame availability, appointment scheduling, all handled over text in seconds instead of minutes on hold.</div>
+      </div>
+    </div>
+
+    <!-- Pair 1: Capture Intent -->
+    <div class="pair">
+      <div class="pframe">
+        <img src="/text-messages/screenshots/ss_textus_button.png" alt="Text Us button on an optometry practice website">
+      </div>
+      <div class="ptext">
+        <h3>Capture patients at the moment of highest intent.</h3>
+        <p>Patients text you at the exact moment they are most interested. They are on your website, looking at your services, and they have a question. The "Text Us" button gives them a way to get an answer without picking up the phone.</p>
+        <p>No more losing website visitors who had a question but did not want to call. Every text is a lead that would have bounced.</p>
+        <span class="proof-pill">Anti-bounce &middot; Captures website visitors at peak intent</span>
+      </div>
+    </div>
+
+    <!-- Pair 2: Real-Time Response -->
+    <div class="pair flip">
+      <div class="ptext">
+        <h3>Five conversations at once. Impossible with a phone.</h3>
+        <p>Your team handles multiple text conversations simultaneously, something that is impossible with phone calls. Routine questions get fast answers without tying up a phone line.</p>
+        <p>A phone call takes five minutes plus phone tag. A text takes thirty seconds. By giving patients a way to text, you are clearing phone lines for the calls that actually need a live voice.</p>
+        <span class="proof-pill">5-10 texts in the time of one call &middot; Clears phone lines</span>
+      </div>
+      <div class="pframe">
+        <img src="/text-messages/screenshots/ss_text_conversation.png" alt="PatientEngage text messaging dashboard showing active conversations">
+      </div>
+    </div>
+
+    <!-- Pair 3: Read Rate Visibility -->
+    <div class="pair">
+      <div class="pframe">
+        <img src="/text-messages/screenshots/ss_admin_report.png" alt="PatientEngage admin report showing text message read rates across practices">
+      </div>
+      <div class="ptext">
+        <h3>Know which messages patients actually opened.</h3>
+        <p>Unlike phone calls and voicemails, you can see exactly who is engaging. The admin report shows read rates across every practice in the network, so you know which locations are connecting with patients and which need help.</p>
+        <p>170 practices maintain a 75% or higher read rate. When patients read your messages, they book appointments.</p>
+        <span class="proof-pill">88% read rate &middot; 14,327 texts in Q1 2026</span>
+      </div>
+    </div>
+
+    <!-- Pair 4: Recovery Math -->
+    <div class="pair flip">
+      <div class="ptext">
+        <h3>28 texts a day from a single location.</h3>
+        <p>Every text conversation that answers a patient's question is a call your front desk did not have to take. One practice handled 1,805 texts in a quarter, 28 per day, from a single location.</p>
+        <p>That is 1,805 interactions that would have been phone calls, voicemails, or missed connections. At an estimated $35 per text-influenced appointment, that practice generated $63,000 in text-influenced revenue in one quarter.</p>
+        <span class="proof-pill">$63K/quarter text-influenced revenue &middot; Single location</span>
+      </div>
+      <div class="pframe">
+        <img src="/text-messages/screenshots/ss_mobile_text.png" alt="Patient text conversation on a mobile phone" style="max-width: 375px; margin: 0 auto;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="section">
+  <div class="si">
+    <div class="eyebrow">Real results</div>
+    <h2>1,805 texts. 99% read rate. One location.</h2>
+    <div class="case">
+      <div class="case-stats">
+        <div class="cs"><div class="cs-n">1,805</div><div class="cs-l">texts in Q1 2026<br>from one location</div></div>
+        <div class="cs"><div class="cs-n">99%</div><div class="cs-l">read rate<br>highest in network</div></div>
+        <div class="cs"><div class="cs-n">~28</div><div class="cs-l">texts per day<br>average</div></div>
+        <div class="cs"><div class="cs-n">$63K</div><div class="cs-l">text-influenced<br>revenue per quarter</div></div>
+      </div>
+      <p class="qtext">"We used to play phone tag all day. Now patients text us their insurance questions, frame preferences, even photos of their broken glasses. We answer in thirty seconds instead of five minutes. The phone lines are clear for the patients who actually need to talk."</p>
+      <div class="qattr">
+        <div class="avatar">LE</div>
+        <div>
+          <div class="qname">Lakewood Eye Center</div>
+          <div class="qloc">Huffman, TX &middot; #1 in text volume across 278 practices</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ / OBJECTIONS -->
+<section class="section section-alt">
+  <div class="si">
+    <div class="eyebrow">Common questions</div>
+    <h2>Things practice owners ask before turning on texting.</h2>
+    <p class="ssub">Every question below is one we hear regularly. Here is the direct answer to each one.</p>
+
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">Is 2-Way Texting HIPAA compliant? <span class="arr">&#8595;</span></div>
+      <div class="obj-a">Yes. All conversations are fully encrypted and stored in a HIPAA-compliant dashboard with a signed BAA. The biggest HIPAA risk right now is likely staff using personal phones to text patients. Our dashboard is the secure alternative that keeps the practice out of legal trouble.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"I already have Weave or Solutionreach." <span class="arr">&#8595;</span></div>
+      <div class="obj-a">Weave and Solutionreach are great for automated confirmations and recalls. But when a patient texts at 2:00 PM asking about Chrome Hearts frames, they do not want a bot. Our tool is the "Express Lane" for your staff to have real conversations that get lost in automated noise. It works alongside your existing tools, not instead of them.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"My staff is already buried. This sounds like more work." <span class="arr">&#8595;</span></div>
+      <div class="obj-a">A phone call takes five minutes plus phone tag. A text takes thirty seconds. By giving patients a way to text, you are clearing phone lines. It is easier to manage five text conversations at once than two people on hold while a patient stands at the desk. Texting reduces the workload. It does not add to it.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"No EHR sync sounds like double work." <span class="arr">&#8595;</span></div>
+      <div class="obj-a">For customer service questions, an EHR sync can actually be a liability. You do not need a clinical record of a patient asking about holiday hours or vision plans. Keeping this standalone means it is HIPAA-safe without sync-lag or software updates breaking your communication line. Think of it as a clean, fast hotline that works even if your EHR is down.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"My patients are 70+ and do not text." <span class="arr">&#8595;</span></div>
+      <div class="obj-a">It is 2026. 75% or more of seniors prefer text for quick updates because they can read at their own pace without the pressure of a live phone conversation. Plus, moving quick questions to text frees your staff to give seniors the long, high-touch phone calls they actually want.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"What about after-hours texts?" <span class="arr">&#8595;</span></div>
+      <div class="obj-a">An instant auto-reply captures the lead while protecting your team. Something like: "We are home with our families right now, but we have got your message and will jump on this first thing Monday morning." The patient knows they have been heard. Your staff does not have to respond at midnight.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">How much does 2-Way Texting cost? <span class="arr">&#8595;</span></div>
+      <div class="obj-a">2-Way Texting is included in all EyeCarePro marketing programs at no additional cost. Competitors charge $300 to $700 per month for bundled suites that include texting as one feature among many. We include the most important part, the actual conversation, as part of your marketing. No bundle tax.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">Is this automated or does a real person respond? <span class="arr">&#8595;</span></div>
+      <div class="obj-a">Every response comes from a real person on your team. This is not a chatbot or an AI auto-responder. It is human-to-human texting through a secure dashboard. That is the entire point. Patients want genuine answers from real staff, not canned replies. The only automated message is the optional after-hours auto-reply.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section">
+  <div class="si">
+    <div class="eyebrow">Why PatientEngage</div>
+    <h2>The quiet, clinical alternative to expensive bundled suites.</h2>
+    <p class="ssub">We are not trying to sell a massive platform. Just a clean, professional way to talk to your patients.</p>
+    <div class="tw">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:28%">Feature</th>
+            <th class="pe">PatientEngage</th>
+            <th>Weave</th>
+            <th>Podium</th>
+            <th>Solutionreach</th>
+            <th>OhMD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2-Way patient texting</td><td class="pe win">Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+          <tr><td>Human-only responses</td><td class="pe win">Yes</td><td>Mixed</td><td>No</td><td>Mixed</td><td>Yes</td></tr>
+          <tr><td>HIPAA compliant</td><td class="pe win">Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+          <tr><td>Built for optometry</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><td>Read rate tracking</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><td>Network admin reporting</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><td>Setup time</td><td class="pe win">15 minutes</td><td>Weeks</td><td>Days</td><td>Weeks</td><td>Hours</td></tr>
+          <tr><td>Included in marketing</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><td>Typical annual cost</td><td class="pe win">Included</td><td>$5,000+</td><td>$5,000+</td><td>$4,000+</td><td>$2,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tnote">Pricing reflects publicly available information and typical annual costs for small to mid-size optometry practices. PatientEngage 2-Way Texting is included in EyeCarePro marketing programs or available standalone.</p>
+
+    <!-- Recalls teaser -->
+    <div class="rc-teaser">
+      <div>
+        <div class="rc-teaser-label">Need automation too?</div>
+        <div class="rc-teaser-title">Pair with Recalls &amp; Reminders</div>
+        <div class="rc-teaser-body">2-Way Texting handles the real conversations. For automated appointment confirmations, recall campaigns, and birthday messages, pair it with Recalls &amp; Reminders. Human texting plus automated outreach, one dashboard.</div>
+      </div>
+      <a href="/reminders" class="rc-link">Learn about Recalls &amp; Reminders &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Start texting your patients today.</h2>
+  <p class="cta-sub">No extra cost for EyeCarePro clients. No complex setup.<br>Your team can be texting patients in 15 minutes.</p>
+  <div class="cta-btns">
+    <button class="btn-teal-pill">Start texting your patients today</button>
+    <button class="btn-ghost-pill">Talk to your marketing manager</button>
+  </div>
+  <p class="cta-fine">Already an EyeCarePro client? You may already have this included. &middot; Or <a>contact us</a></p>
+</section>
+
+<footer>
+  <span class="flogo">PatientEngage</span>
+  <span class="fcopy">&copy; 2026 &middot; patientengage.ai</span>
+</footer>
+
+<script>
+function toggle(el) { el.classList.toggle('open'); }
+</script>
+</body>
+</html>

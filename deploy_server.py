@@ -10,10 +10,12 @@ LOG_FILE     = os.path.join(VERSIONS_DIR, "changelog.json")
 PORT         = 8081
 
 PAGES = {
-    "scheduler":     "scheduler",
-    "google-reserve":"google-reserve",
-    "ai-voice-agent":"ai-voice-agent",
-    "reminders":     "reminders",
+    "scheduler":      "scheduler",
+    "google-reserve": "google-reserve",
+    "ai-voice-agent": "ai-voice-agent",
+    "reminders":      "reminders",
+    "text-messages":  "text-messages",
+    "ring-analytics": "ring-analytics",
 }
 
 def ensure_dirs():
