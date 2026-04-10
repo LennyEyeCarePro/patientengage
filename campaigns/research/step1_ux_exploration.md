@@ -325,11 +325,11 @@ Justification: By warming up patients with EHR-segmented educational content bef
 
 **2. The Manual Labor Tax (Operational Waste):**
 - The Question: "What is the hourly cost of your front desk staff spending 3-5 hours a week trying to 'do marketing' (designing, exporting CSVs, posting) that results in zero trackable ROI?"
-- The Proof: Campaigns costs $49/mo. If their staff spends just 3 hours a month at $20/hr failing at this, they are already losing money ($60 vs $49).
+- The Proof: Campaigns costs [pricing redacted]. If their staff spends just 3 hours a month at $20/hr failing at this, they are already losing money ($60 vs [pricing redacted]).
 
 **3. The Capture Gap (Revenue Leakage):**
 - The Question: "If an automated Myopia or Dry Eye campaign reached your current patients and just 1% booked an evaluation, what would that do to your gross revenue this month?"
-- The Proof: For an average practice with 5,000 patients, a 1% conversion is 50 exams. At a $300 specialty average, that's $15,000 in "found" revenue for a $49 investment.
+- The Proof: For an average practice with 5,000 patients, a 1% conversion is 50 exams. At a $300 specialty average, that's $15,000 in "found" revenue for a [pricing redacted] investment.
 
 ### Marketing Translations
 
@@ -368,3 +368,35 @@ From Mode 4 observations:
 **EHR Email Appointments** — the metric that ties campaign sends directly to booked exams. This is the only metric in the entire Campaigns system that bridges marketing activity to clinical revenue. At the network level (March 2026), 34,623 appointments were attributed to campaign emails. This is expected to be the killer stat, pending validation with real case study data in Step 3.
 
 **Note:** This is a metric TYPE identification, not a committed killer stat. The actual number and framing will be determined after Steps 2 and 3 provide real, validated data.
+
+---
+
+## Supplementary: Domain Insights (Practice Perspective)
+
+### Top 3 Reasons This is a Great Feature (Practice Perspective)
+
+1. **Eliminates the "Ghosting Tax":** Most practices only speak to patients during the appointment or a generic recall. Campaigns ensure you are top-of-mind for high-value needs (Dry Eye, Myopia, Second-Pairs) 365 days a year without the doctor or staff lifting a finger. It turns a "passive" database into an "active" revenue stream.
+
+2. **The "Staff Liberation" Engine:** Marketing usually fails because the front desk gets busy and stops posting or emailing. Campaigns automate the entire multi-channel journey (Social, Email, Landing Pages). It effectively acts as a [pricing redacted] marketing assistant that never calls in sick, never forgets to post, and never misses an email.
+
+3. **Medical Authority via EHR Precision:** Unlike generic "newsletter" tools, this uses actual EHR data to send the right message to the right patient. Sending a Scleral Lens educational email specifically to your Keratoconus patients builds instant clinical authority. You stop being a "glasses shop" and start being their "specialized medical provider."
+
+### 8 Objection Handling Questions (The Gap Truth-Teller)
+
+When they push back on price, effort, or "we already do that," use these diagnostic daggers to expose the malignancy:
+
+1. **The "Manual Labor" Trap:** "I'm confused. You said your staff is currently 'handling' your email and social. Based on their hourly rate, how much are you actually paying them every month to manually do what this system automates for [pricing redacted]?"
+
+2. **The "Invisible Patient" Reality:** "If I pulled a list of your 500 most profitable patients right now, how many of them have received an educational touchpoint from you in the last 6 months that wasn't just a 'time for your exam' reminder?"
+
+3. **The "Broken Journey" Check:** "You mentioned you have a social media tool. When someone clicks a post about your new dry eye technology, where do they land? Does it go to a generic homepage where they have to hunt for information, or a conversion-ready page that tracks their booking?"
+
+4. **The "Relationship" Illusion:** "You said your patients are loyal because of the relationship. If they see three ads this week from a corporate competitor offering 20% off and they haven't heard from you in a year, how much is that 'relationship' actually worth at the moment of purchase?"
+
+5. **The "EHR Asset" Audit:** "Your EHR is the most valuable asset in your practice. Right now, is that data actually generating new revenue for you, or is it just a digital filing cabinet where opportunities go to collect dust?"
+
+6. **The "Staff Turnover" Risk:** "If your person who currently handles 'the Facebook stuff' quit tomorrow, what happens to your practice's online voice? Does it just go silent until you hire and train someone else?"
+
+7. **The "Specialty Growth" Gap:** "You want to grow your Myopia Management by $50k this year. How many of your current parents even know you offer that service, and what is your automated plan to tell them?"
+
+8. **The "Cost of Inaction" Hammer:** "We're talking about [pricing redacted] a month. If this system brings in just one extra pair of glasses or one specialty exam every three months, the tool is free. Is the risk of missing those sales worth the [pricing redacted] you're trying to save?"
