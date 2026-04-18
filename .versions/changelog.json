@@ -1,5 +1,41 @@
 [
   {
+    "version": "1.8",
+    "page": "reminders",
+    "timestamp": "2026-04-09 21:15:19",
+    "message": "Rewrite reminders page to match scheduler format, add real objections",
+    "snapshot": "reminders_v1.8_20260409_211519.html",
+    "git_ok": true,
+    "live_url": "https://patientengage.vercel.app/reminders"
+  },
+  {
+    "version": "1.7",
+    "page": "google-reserve",
+    "timestamp": "2026-04-07 16:16:17",
+    "message": "Updated ZocDoc Language",
+    "snapshot": "google-reserve_v1.7_20260407_161617.html",
+    "git_ok": true,
+    "live_url": "https://patientengage.vercel.app/google-reserve"
+  },
+  {
+    "version": "1.6",
+    "page": "google-reserve",
+    "timestamp": "2026-04-07 16:11:01",
+    "message": "Accordians didn't open in first version",
+    "snapshot": "google-reserve_v1.6_20260407_161101.html",
+    "git_ok": true,
+    "live_url": "https://patientengage.vercel.app/google-reserve"
+  },
+  {
+    "version": "1.5",
+    "page": "google-reserve",
+    "timestamp": "2026-04-07 15:57:07",
+    "message": "First version - no screenshots",
+    "snapshot": "google-reserve_v1.5_20260407_155707.html",
+    "git_ok": false,
+    "live_url": "https://patientengage.vercel.app/google-reserve"
+  },
+  {
     "version": "1.4",
     "timestamp": "2026-03-31 13:14:12",
     "message": "Size fixes and general front end enhancements",

@@ -16,6 +16,7 @@ PAGES = {
     "reminders":      "reminders",
     "text-messages":  "text-messages",
     "ring-analytics": "ring-analytics",
+    "campaigns":      "campaigns",
 }
 
 def ensure_dirs():

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recalls &amp; Reminders for Optometry Practices | PatientEngage</title>
+  <meta name="description" content="Stop losing patients who are overdue for their annual exam. PatientEngage Recalls & Reminders contacts them automatically via text and email, and books them back in. 5,209 appointments confirmed last month.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:    #0F2A4A;
+      --blue:    #1B5FA8;
+      --teal:    #00A3A3;
+      --green:   #0F6E56;
+      --green-bg:#F0FDF9;
+      --green-bd:#A7F3D0;
+      --slate:   #4B6278;
+      --muted:   #7A96A8;
+      --border:  #E2E8F0;
+      --bg:      #F8FAFC;
+      --blue-lt: #EEF4FF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--navy); background: #fff; -webkit-font-smoothing: antialiased; font-size: 17px; line-height: 1.65; }
+
+    /* NAV */
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-size: 17px; font-weight: 800; color: var(--navy); text-decoration: none; letter-spacing: -.3px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links .active { color: var(--navy); font-weight: 600; border-bottom: 2px solid var(--teal); padding-bottom: 2px; }
+    .nav-actions { display: flex; gap: 8px; }
+    .btn-outline { padding: 9px 22px; border-radius: 30px; border: 1.5px solid var(--border); background: #fff; color: var(--navy); font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: border-color .2s; }
+    .btn-outline:hover { border-color: var(--navy); }
+    .btn-dark { padding: 9px 22px; border-radius: 30px; border: none; background: var(--navy); color: #fff; font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background .2s; }
+    .btn-dark:hover { background: #1a3d6b; }
+
+    /* HERO */
+    .hero { padding: 88px 48px 72px; text-align: center; }
+    .badge { display: inline-flex; align-items: center; gap: 7px; padding: 6px 18px; background: var(--green-bg); border: 1px solid var(--green-bd); border-radius: 30px; font-size: 13px; font-weight: 600; color: var(--green); margin-bottom: 24px; }
+    .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 56px; font-weight: 400; color: var(--navy); line-height: 1.08; letter-spacing: -.5px; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    h1 em { font-style: italic; color: var(--teal); }
+    .hero-sub { font-size: 19px; color: var(--slate); line-height: 1.7; max-width: 580px; margin: 0 auto 30px; }
+    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+    .btn-navy-pill { padding: 14px 32px; border-radius: 30px; border: none; background: var(--navy); color: #fff; font-size: 15px; font-weight: 700; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background .2s; }
+    .btn-navy-pill:hover { background: #1a3d6b; }
+    .btn-ghost-pill { padding: 14px 32px; border-radius: 30px; border: 1.5px solid var(--border); background: #fff; color: var(--navy); font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: border-color .2s; }
+    .btn-ghost-pill:hover { border-color: var(--navy); }
+    .hero-fine { font-size: 14px; color: var(--muted); margin-bottom: 56px; }
+    .hero-frame { max-width: 700px; margin: 0 auto; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 48px rgba(15,42,74,.12); }
+    .frame-bar { background: var(--bg); padding: 11px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 7px; }
+    .fdot { width: 10px; height: 10px; border-radius: 50%; }
+    .furl { background: #EDF2F7; border-radius: 5px; padding: 4px 16px; font-size: 12px; color: var(--muted); margin-left: 12px; flex: 1; max-width: 340px; text-align: center; }
+    .hero-frame img { width: 100%; display: block; }
+    .hero-cap { font-size: 15px; color: var(--slate); text-align: center; margin-top: 14px; line-height: 1.6; }
+    .hero-cap strong { color: var(--navy); }
+
+    /* STATS */
+    .stats { display: flex; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg); }
+    .stat { flex: 1; padding: 32px 24px; text-align: center; border-right: 1px solid var(--border); }
+    .stat:last-child { border-right: none; }
+    .stat-n { font-family: 'DM Serif Display', serif; font-size: 42px; color: var(--navy); line-height: 1; margin-bottom: 7px; }
+    .stat-l { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+    /* LOGOS */
+    .logos { padding: 28px 48px; text-align: center; border-bottom: 1px solid var(--border); }
+    .logos p { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+    .logo-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .logo-pill { padding: 7px 18px; border: 1px solid var(--border); border-radius: 30px; font-size: 13px; font-weight: 600; color: var(--muted); }
+
+    /* SECTIONS */
+    .section { padding: 80px 48px; }
+    .section-alt { background: var(--bg); }
+    .si { max-width: 900px; margin: 0 auto; }
+    .eyebrow { font-size: 12px; font-weight: 700; color: var(--teal); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 12px; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 40px; font-weight: 400; color: var(--navy); line-height: 1.15; margin-bottom: 12px; letter-spacing: -.3px; }
+    .ssub { font-size: 17px; color: var(--slate); line-height: 1.75; max-width: 520px; margin-bottom: 44px; }
+
+    /* BEFORE/AFTER CARDS */
+    .before-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+    .bc { padding: 26px; border-radius: 14px; border: 1px solid var(--border); background: #fff; }
+    .bc.hl { border-color: #FECACA; background: #FEF9F9; }
+    .btag { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; margin-bottom: 12px; background: var(--bg); color: var(--muted); }
+    .btag.bad { background: #FEE2E2; color: #DC2626; }
+    .btitle { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .bbody { font-size: 14px; color: var(--slate); line-height: 1.7; }
+    .pullquote { background: var(--navy); border-radius: 14px; padding: 32px 40px; text-align: right; }
+    .pullquote p { font-family: 'DM Serif Display', serif; font-size: 22px; color: #fff; line-height: 1.5; font-style: italic; margin-bottom: 10px; }
+    .pullquote span { font-size: 14px; color: var(--muted); }
+
+    /* STEPS */
+    .steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 56px; }
+    .step { padding: 26px; border: 1px solid var(--border); border-radius: 14px; background: #fff; transition: border-color .2s; }
+    .step:hover { border-color: var(--teal); }
+    .step-n { font-size: 12px; font-weight: 700; color: var(--teal); margin-bottom: 10px; letter-spacing: .3px; }
+    .step-t { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .step-b { font-size: 14px; color: var(--slate); line-height: 1.7; }
+
+    /* PAIRS */
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-top: 56px; }
+    .pair.flip { direction: rtl; }
+    .pair.flip > * { direction: ltr; }
+    .pframe { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 28px rgba(15,42,74,.09); }
+    .pframe img { width: 100%; display: block; }
+    .ptext h3 { font-family: 'DM Serif Display', serif; font-size: 30px; font-weight: 400; color: var(--navy); line-height: 1.2; margin-bottom: 14px; }
+    .ptext p { font-size: 15px; color: var(--slate); line-height: 1.75; margin-bottom: 14px; }
+    .proof-pill { display: inline-block; padding: 5px 16px; background: var(--blue-lt); color: var(--blue); border-radius: 20px; font-size: 13px; font-weight: 600; }
+
+    /* RECALL TYPES GRID */
+    .types-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    .type-card { padding: 26px; border: 1px solid var(--border); border-radius: 14px; background: #fff; transition: border-color .2s; }
+    .type-card:hover { border-color: var(--teal); }
+    .type-icon { font-size: 28px; margin-bottom: 12px; }
+    .type-name { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .type-desc { font-size: 14px; color: var(--slate); line-height: 1.7; }
+    .type-channels { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+    .ch-pill { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; background: var(--blue-lt); color: var(--blue); }
+
+    /* CASE STUDY */
+    .case { background: linear-gradient(135deg, #F0F7FF, #F0FDFB); border: 1px solid #DBEAFE; border-radius: 16px; padding: 40px; }
+    .case-stats { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; margin: 22px 0 32px; }
+    .cs { padding: 20px 14px; text-align: center; border-right: 1px solid var(--border); }
+    .cs:last-child { border-right: none; }
+    .cs-n { font-family: 'DM Serif Display', serif; font-size: 34px; color: var(--navy); line-height: 1; margin-bottom: 5px; }
+    .cs-l { font-size: 13px; color: var(--muted); line-height: 1.4; }
+    .qtext { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--navy); line-height: 1.65; font-style: italic; margin-bottom: 20px; }
+    .qattr { display: flex; align-items: center; gap: 14px; }
+    .avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--teal); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .qname { font-size: 14px; font-weight: 700; color: var(--navy); }
+    .qloc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+    /* OBJECTIONS */
+    .obj { border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+    .obj-q { padding: 18px 24px; font-size: 15px; font-weight: 600; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background .15s; user-select: none; line-height: 1.4; }
+    .obj-q:hover { background: var(--bg); }
+    .arr { color: var(--muted); font-size: 20px; transition: transform .2s; flex-shrink: 0; margin-left: 16px; }
+    .obj-a { padding: 0 24px 20px; font-size: 15px; color: var(--slate); line-height: 1.75; display: none; }
+    .obj.open .obj-a { display: block; }
+    .obj.open .arr { transform: rotate(180deg); }
+
+    /* TABLE */
+    .tw { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    thead th { padding: 15px 18px; text-align: left; font-weight: 700; color: var(--navy); background: var(--bg); border-bottom: 1px solid var(--border); font-size: 14px; }
+    thead th:not(:first-child) { text-align: center; }
+    thead th.pe { background: var(--blue-lt); color: var(--blue); }
+    tbody td { padding: 13px 18px; border-bottom: 1px solid #F1F5F9; color: var(--slate); font-size: 14px; }
+    tbody td:not(:first-child) { text-align: center; }
+    tbody td.pe { background: #F8FBFF; }
+    tbody td.win { color: var(--green); font-weight: 700; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: var(--bg); }
+    tbody tr:hover td.pe { background: var(--blue-lt); }
+
+    /* CROSS-SELL TEASER */
+    .gr-teaser { margin-top: 56px; padding: 28px 32px; border: 1px solid var(--green-bd); border-radius: 14px; background: var(--green-bg); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .gr-teaser-label { font-size: 12px; font-weight: 700; color: var(--green); letter-spacing: .8px; text-transform: uppercase; margin-bottom: 7px; }
+    .gr-teaser-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .gr-teaser-body { font-size: 14px; color: var(--slate); max-width: 500px; line-height: 1.65; }
+    .gr-link { display: inline-block; padding: 11px 24px; border-radius: 30px; border: 1.5px solid var(--green); color: var(--green); font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: background .2s; }
+    .gr-link:hover { background: rgba(15,110,86,.08); }
+
+    /* CTA */
+    .cta { padding: 88px 48px; text-align: center; background: var(--bg); border-top: 1px solid var(--border); }
+    .cta h2 { margin-bottom: 14px; }
+    .cta-sub { font-size: 17px; color: var(--slate); margin-bottom: 32px; line-height: 1.7; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta-fine { font-size: 14px; color: var(--muted); margin-top: 18px; }
+    .cta-fine a { color: var(--blue); text-decoration: underline; cursor: pointer; }
+
+    /* FOOTER */
+    footer { padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); }
+    .flogo { font-size: 16px; font-weight: 800; color: var(--navy); }
+    .fcopy { font-size: 13px; color: var(--muted); }
+
+    /* RESPONSIVE */
+    @media (max-width:768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      h1 { font-size: 38px; }
+      .hero { padding: 60px 20px 52px; }
+      .hero-sub { font-size: 17px; }
+      .stats { flex-direction: column; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+      .logos { padding: 24px 20px; }
+      .section { padding: 60px 20px; }
+      .before-grid, .steps, .types-grid { grid-template-columns: 1fr; }
+      .pair, .pair.flip { grid-template-columns: 1fr; gap: 28px; direction: ltr; }
+      .case-stats { grid-template-columns: 1fr 1fr; }
+      .cs:nth-child(2) { border-right: none; }
+      .cs:nth-child(3) { border-top: 1px solid var(--border); }
+      h2 { font-size: 30px; }
+      .pullquote { text-align: left; padding: 24px; }
+      .gr-teaser { flex-direction: column; }
+      .cta { padding: 60px 20px; }
+      footer { flex-direction: column; gap: 8px; padding: 20px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">PatientEngage</a>
+  <ul class="nav-links">
+    <li><a href="/scheduler">Real-Time Scheduler</a></li>
+    <li><a href="/ai-voice-agent">AI Voice Agent</a></li>
+    <li><a href="/google-reserve">Google Reserve</a></li>
+    <li><a href="/reminders" class="active">Reminders</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-outline" onclick="window.open('#','_self')">Sign in</button>
+    <button class="btn-dark" onclick="window.open('#','_self')">Get started</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">
+    <span class="badge-dot"></span>
+    Part of the PatientEngage platform serving 2,500+ practices
+  </div>
+  <h1>Stop Losing Patients. Start <em>Bringing Them Back.</em></h1>
+  <p class="hero-sub">PatientEngage Recalls &amp; Reminders automatically re-engages overdue patients and confirms upcoming appointments via text, email, and call. 5,209 appointments confirmed last month across 23 practices.</p>
+  <div class="hero-cta">
+    <button class="btn-navy-pill" onclick="window.open('#','_self')">Book a live demo</button>
+    <button class="btn-ghost-pill" onclick="window.open('#','_self')">Watch 2-min demo</button>
+  </div>
+  <p class="hero-fine">Integrates with your EHR &middot; Pre-built templates &middot; Live in hours</p>
+  <div class="hero-frame">
+    <div class="frame-bar">
+      <div class="fdot" style="background:#FF5F57"></div>
+      <div class="fdot" style="background:#FEBC2E"></div>
+      <div class="fdot" style="background:#28C840"></div>
+      <div class="furl">Recalls &amp; Reminders &mdash; PatientEngage Dashboard</div>
+    </div>
+    <img src="/reminders/screenshots/ss_recalls-reminders_1.jpg" alt="PatientEngage Recalls and Reminders dashboard showing automated patient outreach metrics and performance data">
+  </div>
+  <p class="hero-cap"><strong>37,862 messages sent automatically. 5,209 appointments confirmed. 431 overdue patients rebooked.</strong> One month. Zero staff time.</p>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-n">37,862</div>
+    <div class="stat-l">automated messages<br>sent in one month</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">76%</div>
+    <div class="stat-l">message delivery rate<br>across all channels</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">5,209</div>
+    <div class="stat-l">appointments confirmed<br>without staff intervention</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">431</div>
+    <div class="stat-l">overdue patients rebooked<br>through automated recalls</div>
+  </div>
+</div>
+
+<!-- LOGOS -->
+<div class="logos">
+  <p>Trusted by optometry practices nationwide to automate patient recalls &amp; reminders</p>
+  <div class="logo-row">
+    <span class="logo-pill">23 practices active</span>
+    <span class="logo-pill">Multi-channel outreach</span>
+    <span class="logo-pill">Works with major EHRs</span>
+    <span class="logo-pill">Part of the PatientEngage platform</span>
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<section class="section">
+  <div class="si">
+    <div class="eyebrow">The problem</div>
+    <h2>Three ways practices lose patients they have already seen.</h2>
+    <p class="ssub">Each one looks different. All three end the same way: a patient who would have come back simply drifts away.</p>
+    <div class="before-grid">
+      <div class="bc hl">
+        <div class="btag bad">59% voicemail</div>
+        <div class="btitle">Your staff is calling into voicemail.</div>
+        <div class="bbody">15-20 hours a month dialing overdue patients. Our data shows 59% of those calls go to voicemail. The ones who do answer are interrupted during their day. Patients respond to texts within minutes. They ignore calls from numbers they do not recognize.</div>
+      </div>
+      <div class="bc">
+        <div class="btag">Single touch</div>
+        <div class="btitle">Your EHR sends one email and hopes for the best.</div>
+        <div class="bbody">Built-in EHR reminders send a single email before an appointment. No recall for overdue patients. No SMS. No follow-up if nobody responds. One message through one channel does not move people to act. It takes multiple touches across text, email, and call to cut through.</div>
+      </div>
+      <div class="bc">
+        <div class="btag">Most common</div>
+        <div class="btitle">Nobody notices when patients lapse.</div>
+        <div class="bbody">20-30% of patients quietly become overdue every year. Not because they are unhappy. Because nobody reminded them. A 3,000-patient practice loses 600-900 patients annually. At $350 per comprehensive exam, that is $210,000-$315,000 walking out the door.</div>
+      </div>
+    </div>
+    <div class="pullquote">
+      <p>"You did not lose those patients because of your care. You lost them because your recall system was a person with a phone, calling into voicemail."</p>
+      <span>59% voicemail rate &middot; Based on network-wide data from 23 practices</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-alt">
+  <div class="si">
+    <div class="eyebrow">How it works</div>
+    <h2>Three things happen automatically, without your staff lifting a finger.</h2>
+    <p class="ssub">Connect your EHR. Turn on the templates. Patients start hearing from you.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">Step 1</div>
+        <div class="step-t">Connect your EHR</div>
+        <div class="step-b">PatientEngage integrates with major EHR systems and pulls your patient data automatically. Appointment history, recall dates, contact information &mdash; everything needed to know who is overdue and who has an upcoming visit.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">Step 2</div>
+        <div class="step-t">Templates activate automatically</div>
+        <div class="step-b">Six pre-built recall and reminder types are ready to go with best-practice timing and messaging for optometry. Your CSM activates them during onboarding. Most practices use the defaults because they work. Every touchpoint is fully customizable.</div>
+      </div>
+      <div class="step">
+        <div class="step-n">Step 3</div>
+        <div class="step-t">Messages flow automatically</div>
+        <div class="step-b">Overdue patients receive multi-touch recall sequences. Upcoming appointments get confirmation reminders. Order-ready patients get pickup notifications. All of it runs 24/7 without anyone on your team doing anything.</div>
+      </div>
+    </div>
+
+    <!-- 6 Recall Types -->
+    <div class="eyebrow" style="margin-top:40px;">Six recall &amp; reminder types</div>
+    <h2 style="font-size:30px;">One system covers the entire patient lifecycle.</h2>
+    <p class="ssub">From bringing back overdue patients to confirming tomorrow's appointments to notifying patients their glasses are ready.</p>
+
+    <div class="types-grid">
+      <div class="type-card">
+        <div class="type-icon">&#128197;</div>
+        <div class="type-name">Exam Recall</div>
+        <div class="type-desc">Automatically contacts patients overdue for their annual eye exam. 4-touch sequence from 10 to 14 months post-exam, escalating through email, SMS, and call.</div>
+        <div class="type-channels"><span class="ch-pill">1 SMS</span><span class="ch-pill">2 Email</span><span class="ch-pill">1 Call</span></div>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">&#128680;</div>
+        <div class="type-name">No Show Recall</div>
+        <div class="type-desc">When a patient misses their appointment, the system automatically follows up with a rebooking message. No staff intervention needed. The most widely adopted recall type.</div>
+        <div class="type-channels"><span class="ch-pill">1 SMS</span><span class="ch-pill">1 Email</span></div>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">&#9989;</div>
+        <div class="type-name">Appointment Reminder</div>
+        <div class="type-desc">6-touch countdown from 7 days to 2 hours before the appointment. Alternates SMS and email. Patients confirm with a single text reply.</div>
+        <div class="type-channels"><span class="ch-pill">3 SMS</span><span class="ch-pill">2 Email</span></div>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">&#128203;</div>
+        <div class="type-name">Pre-Appointment Info</div>
+        <div class="type-desc">Sends prep details before the visit: bring your insurance card, plan for dilation, arrive 15 minutes early. Reduces check-in friction and no-shows.</div>
+        <div class="type-channels"><span class="ch-pill">1 SMS</span><span class="ch-pill">1 Email</span></div>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">&#128083;</div>
+        <div class="type-name">Order Pickup</div>
+        <div class="type-desc">Notifies patients when their glasses or contacts order arrives. Unique to eyecare. Gets patients in faster and creates opportunities for add-on sales.</div>
+        <div class="type-channels"><span class="ch-pill">2 SMS</span><span class="ch-pill">1 Email</span></div>
+      </div>
+      <div class="type-card">
+        <div class="type-icon">&#128100;</div>
+        <div class="type-name">Manual Recall</div>
+        <div class="type-desc">Staff-triggered outreach for specific patient lists. Use for targeted campaigns: contact lens renewals, dry eye follow-ups, or custom recall segments.</div>
+        <div class="type-channels"><span class="ch-pill">1 SMS</span><span class="ch-pill">1 Email</span></div>
+      </div>
+    </div>
+    <p style="font-size:14px; color:var(--muted); text-align:center; margin-bottom:20px;">Channel counts shown are default settings. Each practice can customize timing, channels, and add additional touchpoints.</p>
+
+    <!-- Pair 1: Tracking -->
+    <div class="pair">
+      <div class="ptext">
+        <h3>Every patient tracked. Every response captured.</h3>
+        <p>The dashboard shows each patient, their message status, delivery channel, and whether they confirmed, rescheduled, or need follow-up. Appointment types and recall categories are all visible in one view.</p>
+        <p>No more wondering if recall messages were sent or if anyone responded. Everything is tracked in real time across all 6 recall types.</p>
+        <span class="proof-pill">Real-time tracking &middot; All channels in one view</span>
+      </div>
+      <div class="pframe">
+        <img src="/reminders/screenshots/ss_recalls-reminders_2.jpg" alt="Recalls and Reminders analytics showing patient tracking with message status, channels, and response tracking">
+      </div>
+    </div>
+
+    <!-- Pair 2: Customization -->
+    <div class="pair flip">
+      <div class="ptext">
+        <h3>Customize every touchpoint or use proven defaults.</h3>
+        <p>Each message in the sequence has three settings: timing (hours, days, or months), delivery days (weekdays or everyday), and delivery window (start and end times). Want SMS only during business hours? Set it. Want emails to go anytime? Done.</p>
+        <p>Most practices use the pre-built templates because they are based on what works across the network. But every touchpoint is fully customizable.</p>
+        <span class="proof-pill">Fully customizable &middot; Pre-built best practices</span>
+      </div>
+      <div class="pframe">
+        <img src="/reminders/screenshots/ss_recalls-reminders_3.jpg" alt="Recalls and Reminders template settings showing customizable timing, channels, and delivery windows for each touchpoint">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="section">
+  <div class="si">
+    <div class="eyebrow">Real results</div>
+    <h2>23 practices. One month. $150,000 in recovered revenue.</h2>
+    <div class="case">
+      <div class="case-stats">
+        <div class="cs"><div class="cs-n">37,862</div><div class="cs-l">messages sent<br>automatically</div></div>
+        <div class="cs"><div class="cs-n">5,209</div><div class="cs-l">appointments<br>confirmed</div></div>
+        <div class="cs"><div class="cs-n">431</div><div class="cs-l">overdue patients<br>rebooked</div></div>
+        <div class="cs"><div class="cs-n">821</div><div class="cs-l">appointments<br>rescheduled</div></div>
+      </div>
+      <p class="qtext">"We used to spend 20 hours a month calling overdue patients and reaching voicemail most of the time. Now the system handles all of it automatically, and we are actually getting more patients back than when we did it manually. The no-show follow-up alone has saved us thousands."</p>
+      <div class="qattr">
+        <div class="avatar">PE</div>
+        <div>
+          <div class="qname">Multi-practice optometry network</div>
+          <div class="qloc">23 practices &middot; 15,056 patients reached in March 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pair" style="margin-top:40px;">
+      <div class="pframe">
+        <img src="/reminders/screenshots/ss_recalls-reminders_4.jpg" alt="Appointment Reminder countdown template showing 6-touch multi-channel sequence">
+      </div>
+      <div class="ptext">
+        <h3>The math is simple.</h3>
+        <p><strong style="color:var(--navy);">431 rebooked patients &times; $350 avg exam</strong> = ~$150,000 in recovered revenue across the network in one month.</p>
+        <p><strong style="color:var(--navy);">Per practice:</strong> ~19 patients rebooked/month = ~$6,650 in monthly revenue that would have been lost.</p>
+        <p><strong style="color:var(--navy);">Annualized:</strong> ~$80,000 per practice in revenue recovered from patient attrition.</p>
+        <span class="proof-pill">73% of rebooked patients came from SMS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIONS / FAQ -->
+<section class="section section-alt">
+  <div class="si">
+    <div class="eyebrow">Common questions</div>
+    <h2>Things practice owners ask before saying yes.</h2>
+    <p class="ssub">Every objection below is one we hear regularly. Here is the honest answer to each one.</p>
+
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"My patients are 65+. They do not do texting. They want a phone call from a human." <span class="arr">&#8595;</span></div>
+      <div class="obj-a">This is the most common myth. Over 70% of seniors now prefer digital communication for routine healthcare tasks because they can read a text at their own pace without struggling to hear a muffled voicemail. And here is the real pivot: by automating the routine reminders for your younger patients, your staff actually has <strong>more time</strong> to give those high-touch 80-year-old patients the long phone calls they genuinely appreciate. The software handles the noise. Your team handles the nuance.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"We are a boutique, family-oriented practice. Automated texts make us look cold and corporate." <span class="arr">&#8595;</span></div>
+      <div class="obj-a">Patients today &mdash; especially Millennials and Gen Z &mdash; actually view "calling to book" as a friction point, not a personal touch. To them, "personal" means "convenient." Think of it as a hybrid model: the software handles the routine reminders, while your staff handles the post-op follow-ups, complex insurance questions, and the moments that actually build relationships. Every message is personalized with the patient's name, their doctor, your practice name, and their appointment details. It does not feel corporate. It feels like your practice remembered them.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"I am already paying my front desk staff to be here. Why would I pay for software to do what they already do?" <span class="arr">&#8595;</span></div>
+      <div class="obj-a">Here is the math. A manual recall call costs ~$16 when you factor in labor, benefits, overhead, and the 3-4 minutes of phone tag per patient. An automated text costs pennies. But the real question is: do you want your $25/hour office manager being a high-level biller and frame stylist, or do you want them to be a human auto-dialer? Our data shows staff spend 15-20 hours a month on recall calls. That is half a week every month spent calling into voicemail. The software frees your best people to do what they are actually good at.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"Patients already get too many notifications. They will just unsubscribe or get annoyed." <span class="arr">&#8595;</span></div>
+      <div class="obj-a">Irrelevant or spammy messages cause notification fatigue. Useful messages &mdash; like a link to their digital intake form or a "your glasses are ready" text &mdash; are actually valued. Our opt-out rate is 1% across 37,862 messages. The system uses cadence control: it is not about sending more messages, it is about sending the right message at the right time. A text 3 weeks before a patient's annual exam due date is not spam. It is exactly what they need to hear.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"What if we get sued? I have heard texting patients is not HIPAA compliant." <span class="arr">&#8595;</span></div>
+      <div class="obj-a">If your practice is texting patients from a personal iPhone, <strong>that</strong> is the HIPAA risk. PatientEngage provides the Business Associate Agreement (BAA) and encryption that your current manual texting lacks. Every message goes through a HIPAA-compliant platform with proper consent tracking, opt-out management, and audit trails. We are the safe room. The real compliance risk is continuing to do recalls with unencrypted email and personal phones.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"My EHR already sends appointment reminders. Why do I need this?" <span class="arr">&#8595;</span></div>
+      <div class="obj-a">EHR reminders send a single email before an appointment. PatientEngage sends up to 6 touches across SMS, email, and call &mdash; starting 7 days before and ending 2 hours before. More importantly, EHR systems do not do <strong>recalls</strong>: the proactive re-engagement of patients who are overdue for their annual exam. That is where the real revenue recovery happens. 431 overdue patients rebooked in a single month across 23 practices. Your EHR cannot do that.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"How is this different from Solutionreach or Weave?" <span class="arr">&#8595;</span></div>
+      <div class="obj-a">Three key differences. First, PatientEngage is <strong>built exclusively for optometry</strong> &mdash; we have recall types like Order Pickup and Pre-Appointment Information that generic healthcare platforms do not offer. Second, our multi-touch sequences go deeper: up to 6 touchpoints per recall type with intelligent channel alternation. Third, it is <strong>integrated with your PatientEngage platform</strong> &mdash; Scheduler, Google Reserve, Reviews &mdash; one dashboard, one login, one support team. Weave requires buying their entire phone system ($300-600/month). Solutionreach is a separate platform with separate training and a separate bill.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section">
+  <div class="si">
+    <div class="eyebrow">Why PatientEngage</div>
+    <h2>The only recall system built exclusively for optometry.</h2>
+    <p class="ssub">Generic healthcare platforms do not know about optical orders, dilation prep, or the annual eye exam cycle. PatientEngage does.</p>
+    <div class="tw">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:28%">Feature</th>
+            <th class="pe">PatientEngage</th>
+            <th>Solutionreach</th>
+            <th>Weave</th>
+            <th>Demandforce</th>
+            <th>EHR Built-in</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Recall types</td><td class="pe win">6 types</td><td>Basic</td><td>Limited</td><td>Basic</td><td>None</td></tr>
+          <tr><td>Multi-touch sequences</td><td class="pe win">Up to 6 touches</td><td>3-4 touches</td><td>2-3 touches</td><td>2-3 touches</td><td>1 touch</td></tr>
+          <tr><td>SMS + Email + Call</td><td class="pe win">All three</td><td>All three</td><td>All three*</td><td>SMS + Email</td><td>Email only</td></tr>
+          <tr><td>No-show follow-up</td><td class="pe win">Automatic</td><td>Manual</td><td>Manual</td><td>Manual</td><td>None</td></tr>
+          <tr><td>Order Pickup alerts</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><td>Pre-Appt eye care prep</td><td class="pe win">Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><td>Built for optometry</td><td class="pe win">Yes</td><td>Generic</td><td>Generic</td><td>Generic</td><td>Varies</td></tr>
+          <tr><td>Phone system required</td><td class="pe win">No</td><td>No</td><td>Yes</td><td>No</td><td>N/A</td></tr>
+          <tr><td>Platform integration</td><td class="pe win">Full</td><td>None</td><td>None</td><td>None</td><td>N/A</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px; color:var(--muted); margin-top:12px;">* Weave requires purchasing their phone system ($300-600/month) to access reminder features.</p>
+
+    <!-- Cross-sell: Scheduler -->
+    <div class="gr-teaser">
+      <div>
+        <div class="gr-teaser-label">Works with</div>
+        <div class="gr-teaser-title">PatientEngage Real-Time Scheduler</div>
+        <div class="gr-teaser-body">When a patient taps the booking link in their reminder, they land on your PatientEngage Scheduler with real-time EHR availability. Confirmed instantly. Written to your EHR automatically.</div>
+      </div>
+      <a href="/scheduler" class="gr-link">Learn about the Scheduler &#8594;</a>
+    </div>
+
+    <!-- Cross-sell: AI Voice Agent -->
+    <div class="gr-teaser" style="margin-top:16px;">
+      <div>
+        <div class="gr-teaser-label">Works with</div>
+        <div class="gr-teaser-title">PatientEngage AI Voice Agent</div>
+        <div class="gr-teaser-body">When a patient calls your office after hours &mdash; or when staff are busy with patients &mdash; the AI Voice Agent handles the call, answers questions, and books appointments. Recalls drive the call. The Voice Agent catches it.</div>
+      </div>
+      <a href="/ai-voice-agent" class="gr-link">Learn about the AI Voice Agent &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta">
+  <h2>Every month without automated recalls is <em>revenue walking away.</em></h2>
+  <p class="cta-sub">See it working with your patient data before you decide anything.<br>Pre-built templates. Multi-channel sequences. Live in hours.</p>
+  <div class="cta-btns">
+    <button class="btn-navy-pill" onclick="window.open('#','_self')">Book a live demo</button>
+    <button class="btn-ghost-pill" onclick="window.open('#','_self')">Get started</button>
+  </div>
+  <p class="cta-fine">Integrates with your EHR &middot; Pre-built templates &middot; Live in hours &middot; Or <a href="#">talk to us first</a></p>
+</section>
+
+<footer>
+  <span class="flogo">PatientEngage</span>
+  <span class="fcopy">&copy; 2026 &middot; patientengage.ai</span>
+</footer>
+
+<script>
+function toggle(el) { el.classList.toggle('open'); }
+</script>
+</body>
+</html>
