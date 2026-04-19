@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EHR-Integrated Google Ads for Optometry | PatientEngage</title>
+  <meta name="description" content="Stop burning ad budget when your schedule is full. PatientEngage connects Google Ads directly to your EHR and only spends when you have appointments to fill.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:    #0F2A4A;
+      --blue:    #1B5FA8;
+      --teal:    #00A3A3;
+      --green:   #0F6E56;
+      --green-bg:#F0FDF9;
+      --green-bd:#A7F3D0;
+      --amber:   #D97706;
+      --amber-bg:#FFFBEB;
+      --amber-bd:#FDE68A;
+      --red:     #DC2626;
+      --red-bg:  #FEF2F2;
+      --red-bd:  #FECACA;
+      --slate:   #4B6278;
+      --muted:   #7A96A8;
+      --border:  #E2E8F0;
+      --bg:      #F8FAFC;
+      --blue-lt: #EEF4FF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'DM Sans',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; font-size:17px; line-height:1.65; }
+
+    /* NAV */
+    nav { display:flex; align-items:center; justify-content:space-between; padding:18px 48px; background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; }
+    .nav-logo { font-size:17px; font-weight:800; color:var(--navy); text-decoration:none; letter-spacing:-.3px; }
+    .nav-links { display:flex; gap:28px; list-style:none; }
+    .nav-links a { font-size:14px; color:var(--muted); text-decoration:none; transition:color .2s; }
+    .nav-links a:hover { color:var(--navy); }
+    .nav-links .active { color:var(--navy); font-weight:600; border-bottom:2px solid var(--teal); padding-bottom:2px; }
+    .nav-actions { display:flex; gap:8px; }
+    .btn-outline { padding:9px 22px; border-radius:30px; border:1.5px solid var(--border); background:#fff; color:var(--navy); font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif; cursor:pointer; transition:border-color .2s; }
+    .btn-outline:hover { border-color:var(--navy); }
+    .btn-dark { padding:9px 22px; border-radius:30px; border:none; background:var(--navy); color:#fff; font-size:14px; font-weight:600; font-family:'DM Sans',sans-serif; cursor:pointer; transition:background .2s; }
+    .btn-dark:hover { background:#1a3d6b; }
+
+    /* HERO */
+    .hero { padding:88px 48px 72px; text-align:center; }
+    .badge { display:inline-flex; align-items:center; gap:7px; padding:6px 18px; background:var(--blue-lt); border:1px solid #BFDBFE; border-radius:30px; font-size:13px; font-weight:600; color:var(--blue); margin-bottom:24px; }
+    .badge-dot { width:7px; height:7px; border-radius:50%; background:var(--blue); }
+    h1 { font-family:'DM Serif Display',serif; font-size:54px; font-weight:400; color:var(--navy); line-height:1.08; letter-spacing:-.5px; margin-bottom:20px; max-width:740px; margin-left:auto; margin-right:auto; }
+    h1 em { font-style:italic; color:var(--teal); }
+    .hero-sub { font-size:19px; color:var(--slate); line-height:1.7; max-width:600px; margin:0 auto 24px; }
+    .exchange { background:var(--navy); border-radius:14px; padding:24px 36px; max-width:560px; margin:0 auto 32px; text-align:center; }
+    .exchange p { font-family:'DM Serif Display',serif; font-size:22px; color:#fff; line-height:1.5; font-style:italic; }
+    .hero-cta { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
+    .btn-navy-pill { padding:14px 32px; border-radius:30px; border:none; background:var(--navy); color:#fff; font-size:15px; font-weight:700; font-family:'DM Sans',sans-serif; cursor:pointer; transition:background .2s; }
+    .btn-navy-pill:hover { background:#1a3d6b; }
+    .btn-ghost-pill { padding:14px 32px; border-radius:30px; border:1.5px solid var(--border); background:#fff; color:var(--navy); font-size:15px; font-weight:600; font-family:'DM Sans',sans-serif; cursor:pointer; transition:border-color .2s; }
+    .btn-ghost-pill:hover { border-color:var(--navy); }
+    .hero-fine { font-size:14px; color:var(--muted); margin-bottom:56px; }
+
+    .hero-frame { max-width:680px; margin:0 auto; border-radius:16px; overflow:hidden; border:1px solid var(--border); box-shadow:0 8px 48px rgba(15,42,74,.12); }
+    .frame-bar { background:var(--bg); padding:11px 18px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:7px; }
+    .fdot { width:10px; height:10px; border-radius:50%; }
+    .furl { background:#EDF2F7; border-radius:5px; padding:4px 16px; font-size:12px; color:var(--muted); margin-left:12px; flex:1; max-width:340px; text-align:center; }
+    .hero-frame img { width:100%; display:block; }
+    .hero-cap { font-size:15px; color:var(--slate); text-align:center; margin-top:14px; line-height:1.6; max-width:500px; margin-left:auto; margin-right:auto; }
+    .hero-cap strong { color:var(--navy); }
+
+    /* STATS */
+    .stats { display:flex; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--bg); }
+    .stat { flex:1; padding:32px 24px; text-align:center; border-right:1px solid var(--border); }
+    .stat:last-child { border-right:none; }
+    .stat-n { font-family:'DM Serif Display',serif; font-size:42px; color:var(--navy); line-height:1; margin-bottom:7px; }
+    .stat-n.green { color:var(--green); }
+    .stat-l { font-size:14px; color:var(--muted); line-height:1.5; }
+
+    /* SECTIONS */
+    .section { padding:80px 48px; }
+    .section-alt { background:var(--bg); }
+    .section-dark { background:var(--navy); }
+    .si { max-width:900px; margin:0 auto; }
+    .eyebrow { font-size:12px; font-weight:700; color:var(--teal); letter-spacing:1.2px; text-transform:uppercase; margin-bottom:12px; }
+    .eyebrow-light { font-size:12px; font-weight:700; color:rgba(255,255,255,.5); letter-spacing:1.2px; text-transform:uppercase; margin-bottom:12px; }
+    h2 { font-family:'DM Serif Display',serif; font-size:40px; font-weight:400; color:var(--navy); line-height:1.15; margin-bottom:12px; letter-spacing:-.3px; }
+    h2.light { color:#fff; }
+    .ssub { font-size:17px; color:var(--slate); line-height:1.75; max-width:540px; margin-bottom:44px; }
+    .ssub.light { color:rgba(255,255,255,.75); }
+
+    /* PROBLEM CARDS */
+    .problem-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+    .prob-card { padding:28px; border-radius:14px; border:1px solid var(--red-bd); background:var(--red-bg); }
+    .prob-label { font-size:11px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; margin-bottom:10px; color:var(--red); }
+    .prob-title { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+    .prob-body { font-size:14px; color:var(--slate); line-height:1.7; }
+
+    /* THREE INPUTS */
+    .inputs { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:48px; }
+    .input-card { padding:28px; border-radius:14px; border:1px solid var(--border); background:#fff; }
+    .input-n { width:32px; height:32px; border-radius:50%; background:var(--teal); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800; color:#fff; margin-bottom:14px; }
+    .input-t { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+    .input-b { font-size:14px; color:var(--slate); line-height:1.7; }
+
+    /* SIMULATION CALLOUT */
+    .sim-callout { background:linear-gradient(135deg,#0F2A4A,#1B5FA8); border-radius:16px; padding:40px 48px; text-align:center; margin-bottom:56px; }
+    .sim-callout h3 { font-family:'DM Serif Display',serif; font-size:34px; color:#fff; font-style:italic; margin-bottom:12px; line-height:1.2; }
+    .sim-callout p { font-size:17px; color:rgba(255,255,255,.8); max-width:520px; margin:0 auto; line-height:1.7; }
+
+    /* PAIRS */
+    .pair { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; margin-top:56px; }
+    .pair.flip { direction:rtl; }
+    .pair.flip > * { direction:ltr; }
+    .pframe { border-radius:14px; overflow:hidden; border:1px solid var(--border); box-shadow:0 4px 28px rgba(15,42,74,.09); }
+    .pframe img { width:100%; display:block; }
+    .ptext h3 { font-family:'DM Serif Display',serif; font-size:30px; font-weight:400; color:var(--navy); line-height:1.2; margin-bottom:14px; }
+    .ptext p { font-size:15px; color:var(--slate); line-height:1.75; margin-bottom:14px; }
+    .proof-pill { display:inline-block; padding:5px 16px; background:var(--blue-lt); color:var(--blue); border-radius:20px; font-size:13px; font-weight:600; }
+    .proof-pill.green { background:var(--green-bg); color:var(--green); }
+    .proof-pill.amber { background:var(--amber-bg); color:var(--amber); }
+
+    /* CASE STUDY */
+    .case { background:linear-gradient(135deg,#F0F7FF,#F0FDFB); border:1px solid #DBEAFE; border-radius:16px; padding:40px; }
+    .case-stats { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border); border-radius:12px; overflow:hidden; background:#fff; margin:22px 0 32px; }
+    .cs { padding:20px 14px; text-align:center; border-right:1px solid var(--border); }
+    .cs:last-child { border-right:none; }
+    .cs-n { font-family:'DM Serif Display',serif; font-size:34px; color:var(--navy); line-height:1; margin-bottom:5px; }
+    .cs-n.green { color:var(--green); }
+    .cs-l { font-size:13px; color:var(--muted); line-height:1.4; }
+    .qtext { font-family:'DM Serif Display',serif; font-size:20px; color:var(--navy); line-height:1.65; font-style:italic; margin-bottom:20px; }
+    .qattr { display:flex; align-items:center; gap:14px; }
+    .avatar { width:42px; height:42px; border-radius:50%; background:var(--blue); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:#fff; flex-shrink:0; }
+    .qname { font-size:14px; font-weight:700; color:var(--navy); }
+    .qloc { font-size:13px; color:var(--muted); margin-top:2px; }
+
+    /* PILOT TABLE */
+    .pilot { background:#fff; border:1px solid var(--border); border-radius:16px; overflow:hidden; margin-top:40px; }
+    .pilot-head { background:var(--navy); padding:20px 28px; display:grid; grid-template-columns:2fr 1fr 1fr; gap:16px; }
+    .pilot-head span { font-size:13px; font-weight:700; color:rgba(255,255,255,.7); text-transform:uppercase; letter-spacing:.5px; }
+    .pilot-row { padding:16px 28px; display:grid; grid-template-columns:2fr 1fr 1fr; gap:16px; border-top:1px solid var(--border); align-items:center; }
+    .pilot-row.highlight { background:var(--blue-lt); }
+    .pilot-label { font-size:15px; color:var(--slate); }
+    .pilot-val { font-size:16px; font-weight:700; color:var(--navy); text-align:center; }
+    .pilot-val.green { color:var(--green); }
+
+    /* STANDARD ADS */
+    .std-box { border:1px solid var(--border); border-radius:16px; padding:40px; background:#fff; }
+    .std-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; margin-top:28px; }
+    .std-list { list-style:none; }
+    .std-list li { font-size:15px; color:var(--slate); line-height:1.75; padding:8px 0; border-bottom:1px solid var(--border); display:flex; gap:10px; align-items:flex-start; }
+    .std-list li:last-child { border-bottom:none; }
+    .std-check { color:var(--teal); font-weight:700; flex-shrink:0; margin-top:2px; }
+    .tracking-note { background:var(--amber-bg); border:1px solid var(--amber-bd); border-radius:10px; padding:16px 20px; font-size:14px; color:var(--slate); line-height:1.7; margin-top:20px; }
+    .tracking-note strong { color:var(--amber); }
+
+    /* OBJECTIONS */
+    .obj { border:1px solid var(--border); border-radius:12px; margin-bottom:10px; overflow:hidden; background:#fff; }
+    .obj-q { padding:18px 24px; font-size:15px; font-weight:600; color:var(--navy); cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:background .15s; user-select:none; line-height:1.4; }
+    .obj-q:hover { background:var(--bg); }
+    .arr { color:var(--muted); font-size:20px; transition:transform .2s; flex-shrink:0; margin-left:16px; }
+    .obj-a { padding:0 24px 20px; font-size:15px; color:var(--slate); line-height:1.75; display:none; }
+    .obj.open .obj-a { display:block; }
+    .obj.open .arr { transform:rotate(180deg); }
+
+    /* EHR LIST */
+    .ehr-grid { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+    .ehr-pill { padding:8px 20px; border-radius:30px; border:1.5px solid var(--border); background:#fff; font-size:14px; font-weight:600; color:var(--slate); }
+
+    /* CTA */
+    .cta { padding:88px 48px; text-align:center; background:var(--bg); border-top:1px solid var(--border); }
+    .cta h2 { margin-bottom:14px; }
+    .cta-sub { font-size:17px; color:var(--slate); margin-bottom:32px; line-height:1.7; }
+    .cta-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .btn-teal-pill { padding:14px 32px; border-radius:30px; border:none; background:var(--teal); color:#fff; font-size:15px; font-weight:700; font-family:'DM Sans',sans-serif; cursor:pointer; transition:background .2s; }
+    .btn-teal-pill:hover { background:#008f8f; }
+    .cta-fine { font-size:13px; color:var(--muted); margin-top:16px; }
+
+    /* FOOTER */
+    footer { padding:24px 48px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); }
+    .flogo { font-size:16px; font-weight:800; color:var(--navy); }
+    .fcopy { font-size:13px; color:var(--muted); }
+
+    /* RESPONSIVE */
+    @media (max-width:768px) {
+      nav { padding:16px 20px; }
+      .nav-links { display:none; }
+      h1 { font-size:36px; }
+      .hero { padding:60px 20px 52px; }
+      .exchange { padding:20px 24px; }
+      .exchange p { font-size:18px; }
+      .stats { flex-direction:column; }
+      .stat { border-right:none; border-bottom:1px solid var(--border); }
+      .stat:last-child { border-bottom:none; }
+      .section { padding:60px 20px; }
+      .problem-grid, .inputs { grid-template-columns:1fr; }
+      .pair, .pair.flip { grid-template-columns:1fr; gap:28px; direction:ltr; }
+      .case-stats { grid-template-columns:1fr 1fr; }
+      .cs:nth-child(2) { border-right:none; }
+      .cs:nth-child(3) { border-top:1px solid var(--border); }
+      h2 { font-size:30px; }
+      .sim-callout { padding:28px 24px; }
+      .sim-callout h3 { font-size:26px; }
+      .std-grid { grid-template-columns:1fr; }
+      .pilot-head, .pilot-row { grid-template-columns:1.5fr 1fr 1fr; }
+      .cta { padding:60px 20px; }
+      footer { flex-direction:column; gap:8px; padding:20px; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">PatientEngage</a>
+  <ul class="nav-links">
+    <li><a href="/scheduler">Real-Time Scheduler</a></li>
+    <li><a href="/ai-voice-agent">AI Voice Agent</a></li>
+    <li><a href="/reviews">Reviews</a></li>
+    <li><a href="/google-ads" class="active">Google Ads</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-outline">Sign in</button>
+    <button class="btn-dark">Get started</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge"><span class="badge-dot"></span>Part of the PatientEngage platform serving 2,500+ practices</div>
+  <h1>Your Google Ads have no idea your <em>schedule is full.</em></h1>
+  <p class="hero-sub">Every day your practice runs Google Ads, it spends money whether your schedule needs patients or not. A patient clicks your ad, finds no available time, and leaves. You paid for that click. You got nothing.</p>
+
+  <div class="exchange">
+    <p>"You give us $50. We give you a booked appointment. We stop when you are full."</p>
+  </div>
+
+  <div class="hero-cta">
+    <button class="btn-navy-pill">Book a live demo</button>
+    <button class="btn-ghost-pill">Get started</button>
+  </div>
+  <p class="hero-fine">Free 14-day trial &middot; No credit card &middot; Setup in one day</p>
+
+  <div class="hero-frame">
+    <div class="frame-bar">
+      <div class="fdot" style="background:#FF5F57"></div>
+      <div class="fdot" style="background:#FEBC2E"></div>
+      <div class="fdot" style="background:#28C840"></div>
+      <div class="furl">EHR PPC Spend Simulation &mdash; PatientEngage</div>
+    </div>
+    <img src="/google-ads/screenshots/ss_ga_01_spend_simulation.png" alt="PatientEngage EHR PPC spend simulation showing projected appointments and CPA before any spend is committed">
+  </div>
+  <p class="hero-cap"><strong>Before you spend a single dollar, run the simulation.</strong> See exactly how many appointments your budget will fill and at what cost per patient.</p>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-n green">$207</div>
+    <div class="stat-l">average net profit per<br>patient acquired</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">196%</div>
+    <div class="stat-l">average ROI across<br>19-location pilot study</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">47,000+</div>
+    <div class="stat-l">confirmed booked appointments<br>generated to date</div>
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<section class="section">
+  <div class="si">
+    <div class="eyebrow">The problem</div>
+    <h2>Traditional Google Ads is running blind.<br>Your schedule is not.</h2>
+    <p class="ssub">Every practice has a natural fill rate. A percentage of your schedule that fills on its own, without any advertising. EHR-Integrated Google Ads calculates that number and spends your budget only on the gap.</p>
+
+    <div class="problem-grid">
+      <div class="prob-card">
+        <div class="prob-label">The waste problem</div>
+        <div class="prob-title">It spends when you are already full.</div>
+        <div class="prob-body">Traditional Google Ads has no connection to your appointment schedule. It spends your budget every day whether you have open slots or not. If your next available appointment is two weeks out, patients click, find nothing, and leave. You paid for every one of those clicks.</div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-label">The visibility problem</div>
+        <div class="prob-title">You have no idea if it is working.</div>
+        <div class="prob-body">Clicks and impressions are not patients. Your agency sends a monthly report full of metrics that cannot tell you how many people who saw your ad actually booked an appointment. You are guessing whether your $2,000 a month is doing anything.</div>
+      </div>
+    </div>
+
+    <div class="problem-grid">
+      <div class="prob-card">
+        <div class="prob-label">The natural fill rate problem</div>
+        <div class="prob-title">You are paying for patients you were already going to get.</div>
+        <div class="prob-body">If your practice naturally fills to 70% every two-week period, the first 70% of your appointments do not need ads to fill them. Spending budget on those patients is pure waste. EHR-Integrated Google Ads identifies only the incremental gap and spends there.</div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-label">The inventory problem</div>
+        <div class="prob-title">An unfilled slot is gone forever.</div>
+        <div class="prob-body">An open appointment at 2pm on Tuesday does not roll over to Wednesday. Every day your schedule runs below its historic average fill rate, that revenue is gone. Your schedule is perishable inventory and most Google Ads have no awareness of it whatsoever.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE INPUTS -->
+<section class="section section-alt">
+  <div class="si">
+    <div class="eyebrow">How it works</div>
+    <h2>Three inputs. One system.<br>No wasted spend.</h2>
+    <p class="ssub">EHR-Integrated Google Ads connects directly to your EHR and processes three data points to make every spend decision.</p>
+
+    <div class="inputs">
+      <div class="input-card">
+        <div class="input-n">1</div>
+        <div class="input-t">Current Booking Rate</div>
+        <div class="input-b">The system reads your EHR and sees exactly how many appointment slots are open for the next two weeks. It knows which days have capacity, which appointment types have gaps, and where the soft spots are.</div>
+      </div>
+      <div class="input-card">
+        <div class="input-n">2</div>
+        <div class="input-t">Natural Fill Rate</div>
+        <div class="input-b">Using historical EHR data and patient booking behavior, the system predicts how many of those open slots will fill on their own without any advertising. This is your baseline. Spend targets only what is above it.</div>
+      </div>
+      <div class="input-card">
+        <div class="input-n">3</div>
+        <div class="input-t">Your CPA Target</div>
+        <div class="input-b">You tell the system the maximum you are willing to pay per new patient. The system calculates exactly how much of your schedule it can fill at that price and shows you the projection before any spend is committed.</div>
+      </div>
+    </div>
+
+    <div class="sim-callout">
+      <h3>"Before you spend a single dollar, run the simulation."</h3>
+      <p>See your current booking rate, your projected natural fill rate, and three spend scenarios with estimated CPA and projected book rate for each. No other Google Ads product shows you this before you spend.</p>
+    </div>
+
+    <!-- Simulation pair -->
+    <div class="pair">
+      <div class="pframe">
+        <img src="/google-ads/screenshots/ss_ga_01_spend_simulation.png" alt="EHR PPC spend simulation showing minimum, current and maximum spend scenarios with projected CPA">
+      </div>
+      <div class="ptext">
+        <h3>You see the math before you spend.</h3>
+        <p>The spend simulation shows your current appointment gap, your historic average book rate, and three scenarios showing exactly what different budget levels will produce: projected book rate, estimated CPA, and how many appointments will come from PPC vs organic fill.</p>
+        <p>No guessing. No trusting an agency's instincts. The system shows you the projection and you decide.</p>
+        <span class="proof-pill">Full pre-spend visibility</span>
+      </div>
+    </div>
+
+    <!-- Hit target pair -->
+    <div class="pair flip" style="margin-top:56px">
+      <div class="ptext">
+        <h3>The system delivers what the simulation projected.</h3>
+        <p>After each spend period, the actual performance report shows exactly what happened: actual spend, actual CPA, actual booking rate, and whether the target was hit.</p>
+        <p>A practice in Arizona set a maximum CPA of $30. The system delivered at $19.41 per confirmed booked appointment, 35% below their maximum target. Target hit. [OBSERVED]</p>
+        <span class="proof-pill green">Hit target: Yes</span>
+      </div>
+      <div class="pframe">
+        <img src="/google-ads/screenshots/ss_ga_02_hit_target.png" alt="EHR PPC actual performance showing hit target checkmark and $19.41 actual CPA vs $30 maximum">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="section">
+  <div class="si">
+    <div class="eyebrow">Real results</div>
+    <h2>1,440 confirmed booked appointments.<br>$26.35 average cost per patient.</h2>
+
+    <div class="case">
+      <div class="case-stats">
+        <div class="cs"><div class="cs-n green">1,440</div><div class="cs-l">confirmed booked<br>appointments</div></div>
+        <div class="cs"><div class="cs-n">$26.35</div><div class="cs-l">average cost per<br>booked appointment</div></div>
+        <div class="cs"><div class="cs-n">$19.41</div><div class="cs-l">current CPA as of<br>April 2026</div></div>
+        <div class="cs"><div class="cs-n green">35%</div><div class="cs-l">below their $30<br>max CPA target</div></div>
+      </div>
+      <p class="qtext">"I've been running Google Ads for two years. I spend $2,000 a month. I have no idea if it's working. My agency sends me a report full of clicks and impressions but nobody can tell me how many of those clicks actually booked an appointment."</p>
+      <div class="qattr">
+        <div class="avatar">AZ</div>
+        <div>
+          <div class="qname">Independent optometry practice</div>
+          <div class="qloc">Arizona &middot; Running EHR-Integrated Google Ads since May 2024</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pilot study -->
+    <div style="margin-top:56px">
+      <div class="eyebrow">19-location pilot study &middot; 2024-2025</div>
+      <h2>What 19 practices produced<br>in their first 12 months.</h2>
+      <p class="ssub">Average per practice location. All conversions are confirmed booked appointments tracked through PatientEngage Scheduler and Ring Analytics.</p>
+
+      <div class="pilot">
+        <div class="pilot-head">
+          <span>Metric</span>
+          <span style="text-align:center">Monthly avg</span>
+          <span style="text-align:center">Annual avg</span>
+        </div>
+        <div class="pilot-row">
+          <div class="pilot-label">Patient appointments (confirmed booked)</div>
+          <div class="pilot-val">45</div>
+          <div class="pilot-val">541</div>
+        </div>
+        <div class="pilot-row highlight">
+          <div class="pilot-label">Gross revenue generated</div>
+          <div class="pilot-val">$19,053</div>
+          <div class="pilot-val">$228,639</div>
+        </div>
+        <div class="pilot-row">
+          <div class="pilot-label">Avg revenue per patient</div>
+          <div class="pilot-val">$423</div>
+          <div class="pilot-val">$423</div>
+        </div>
+        <div class="pilot-row">
+          <div class="pilot-label">Avg cost per acquisition (ad spend only)</div>
+          <div class="pilot-val">$87</div>
+          <div class="pilot-val">$87</div>
+        </div>
+        <div class="pilot-row highlight">
+          <div class="pilot-label">Net profit</div>
+          <div class="pilot-val">$9,335</div>
+          <div class="pilot-val">$112,015</div>
+        </div>
+        <div class="pilot-row">
+          <div class="pilot-label" style="font-weight:700;color:var(--navy)">Net profit per patient</div>
+          <div class="pilot-val green" style="font-size:20px">$207</div>
+          <div class="pilot-val green" style="font-size:20px">$207</div>
+        </div>
+        <div class="pilot-row highlight">
+          <div class="pilot-label" style="font-weight:700;color:var(--navy)">ROI (revenue / total costs)</div>
+          <div class="pilot-val green" style="font-size:20px">196%</div>
+          <div class="pilot-val green" style="font-size:20px">196%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CPA trend pair -->
+    <div class="pair" style="margin-top:56px">
+      <div class="pframe">
+        <img src="/google-ads/screenshots/ss_ga_07_cpa_trend.png" alt="Google Ads CPA trend chart showing cost per conversion declining consistently over time">
+      </div>
+      <div class="ptext">
+        <h3>The longer it runs, the cheaper each patient becomes.</h3>
+        <p>The model learns your practice over time. Seasonal patterns, day-of-week booking behavior, appointment type fill rates. As it learns, it gets more efficient.</p>
+        <p>Across the PatientEngage network, the average cost per booked appointment over 27 months is $26.35. Accounts that have been running since 2024 are now acquiring patients at $19.41, 26% below the network average. [OBSERVED]</p>
+        <span class="proof-pill amber">Compounding advantage</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STANDARD ADS -->
+<section class="section section-alt">
+  <div class="si">
+    <div class="eyebrow">Not on a supported EHR yet?</div>
+    <h2>Standard Google Ads.<br>Expert-managed. Optometry-specific.</h2>
+    <p class="ssub">For practices whose EHR is not yet on the supported list, PatientEngage offers fully managed Google Ads campaigns built by the EyeCarePro team specifically for optometry practices.</p>
+
+    <div class="std-box">
+      <div class="std-grid">
+        <div>
+          <p style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px;">What you get:</p>
+          <ul class="std-list">
+            <li><span class="std-check">&#10003;</span>Expert campaign management by optometry specialists</li>
+            <li><span class="std-check">&#10003;</span>Targeting for eye exams, contacts, dry eye, myopia management, vision therapy, and specialty services</li>
+            <li><span class="std-check">&#10003;</span>Landing pages optimized for optometry patient conversion</li>
+            <li><span class="std-check">&#10003;</span>Call tracking and website conversion tracking</li>
+            <li><span class="std-check">&#10003;</span>Continuous campaign optimization</li>
+            <li><span class="std-check">&#10003;</span>Monthly performance reporting</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px;">Best for:</p>
+          <ul class="std-list">
+            <li><span class="std-check">&#10003;</span>Practices looking to grow new patient volume quickly</li>
+            <li><span class="std-check">&#10003;</span>Offices launching specialty services</li>
+            <li><span class="std-check">&#10003;</span>Practices in competitive markets</li>
+            <li><span class="std-check">&#10003;</span>Multi-location groups building local search visibility</li>
+            <li><span class="std-check">&#10003;</span>Practices not yet on a supported EHR for EHR integration</li>
+          </ul>
+          <div class="tracking-note">
+            <strong>Note on tracking:</strong> Standard Google Ads tracks lead actions: landing page form fills, scheduler clicks, and calls over 60 seconds. These are not confirmed booked appointments. This is a different metric from EHR-Integrated Google Ads and should not be directly compared.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIONS -->
+<section class="section">
+  <div class="si">
+    <div class="eyebrow">Common questions</div>
+    <h2>Things practice owners ask<br>before saying yes.</h2>
+
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"I can't afford to waste money on ads that don't work." <span class="arr">&#8595;</span></div>
+      <div class="obj-a">The waste in traditional Google Ads is structural. The system spends your budget every day whether you need patients or not. EHR-Integrated Google Ads only spends when your schedule has open slots that will not fill on their own. Before any spend is committed, the simulation shows exactly what projected results look like at your budget level. You see the math before you spend a dollar.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"How do I know I'm paying for actual booked appointments and not just clicks?" <span class="arr">&#8595;</span></div>
+      <div class="obj-a">EHR-Integrated Google Ads tracks two sources: appointments booked through the PatientEngage Scheduler on the landing page, and phone calls scored as booked appointments by Ring Analytics. Every conversion in your dashboard is a confirmed booked appointment. Standard Google Ads, and every other PPC agency, tracks lead actions: clicks, form fills, calls over 60 seconds. These are different metrics and should not be directly compared. A $6 cost per lead action and a $26 cost per confirmed booked appointment are not the same number.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"PPC just sends me price shoppers. I want quality medical patients." <span class="arr">&#8595;</span></div>
+      <div class="obj-a">Generic PPC sends generic traffic. EHR-Integrated Google Ads uses your EHR data to optimize for the specific appointment types that generate the most revenue for your practice. The system learns which searches result in booked high-value appointments and allocates more budget to those. Large optical retailers compete on broad terms: eyeglasses, contacts, cheap eye exams. EHR-Integrated Google Ads targets the medical specialties where independent ODs have a genuine clinical advantage: dry eye treatment, myopia management, scleral lenses, comprehensive exams. Over time the quality of traffic improves as the model learns your practice.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"There are too many big retailers in my area. I can't compete with their budgets." <span class="arr">&#8595;</span></div>
+      <div class="obj-a">Large optical retailers bid on broad terms. They do not optimize for dry eye clinics, scleral lens specialists, or myopia management programs. EHR-Integrated Google Ads targets the medical specialties and specific services where independent ODs have a genuine clinical advantage. These are searches the big retailers are not competing for. That is where the opportunity gap is, and most of your competitors are leaving it wide open.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"I don't want an algorithm spending my money. I want a human watching my ads." <span class="arr">&#8595;</span></div>
+      <div class="obj-a">You set the strategy. You set the maximum CPA. You set the target booking rate. The algorithm executes within those parameters, adjusting bids in real time based on schedule availability, search intent, and historical performance. A human cannot adjust a bid at 3am based on a patient's search behavior. The algorithm can. The result is more efficient spend at every hour of the day, not just when someone is looking at a dashboard.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"My EHR isn't on your supported list." <span class="arr">&#8595;</span></div>
+      <div class="obj-a">PatientEngage offers Standard Google Ads for practices whose EHR is not yet on the supported list. Fully managed PPC campaigns built and optimized by the EyeCarePro team specifically for optometry practices. You get expert campaign management, optometry-specific targeting, call tracking, and landing pages designed to convert. When your EHR becomes supported, transitioning to EHR-Integrated Google Ads is straightforward.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"I'm already running Google Ads with another agency. Why would I switch?" <span class="arr">&#8595;</span></div>
+      <div class="obj-a">If your current agency cannot show you how many of their clicks became confirmed booked appointments, you do not know if it is working. EHR-Integrated Google Ads closes the loop from ad click to confirmed appointment in your EHR. If you are spending $2,000 a month and cannot trace that spend to specific booked patients, the question is not why you would switch. It is what you have been paying for.</div>
+    </div>
+    <div class="obj" onclick="toggle(this)">
+      <div class="obj-q">"I'm not comfortable connecting my EHR to a marketing platform. What about patient data security?" <span class="arr">&#8595;</span></div>
+      <div class="obj-a">The EHR connection is read-only. The system reads appointment availability and booking patterns. It does not write to your EHR. It does not access patient clinical records. It does not store or transmit patient-identifiable health information. The integration is designed specifically for healthcare compliance and no patient data is used in advertising targeting.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EHR SUPPORT -->
+<section class="section section-alt">
+  <div class="si" style="text-align:center">
+    <div class="eyebrow">EHR integration</div>
+    <h2>Works with your EHR system.</h2>
+    <p class="ssub" style="margin:0 auto 0">Full EHR integration for EHR-Integrated Google Ads with all eight major optometry practice management systems.</p>
+    <div class="ehr-grid" style="justify-content:center">
+      <span class="ehr-pill">Eyefinity Cloud</span>
+      <span class="ehr-pill">OfficeMate</span>
+      <span class="ehr-pill">RevolutionEHR</span>
+      <span class="ehr-pill">Compulink</span>
+      <span class="ehr-pill">Uprise/VisionWeb</span>
+      <span class="ehr-pill">Crystal PMS</span>
+      <span class="ehr-pill">OD Office Pro</span>
+      <span class="ehr-pill">FoxFire</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Stop guessing. Start knowing<br>exactly what your ads will produce.</h2>
+  <p class="cta-sub">See how EHR-Integrated Google Ads works for your practice.<br>Run a live simulation with your own schedule data.</p>
+  <div class="cta-btns">
+    <button class="btn-teal-pill">Book a live demo</button>
+    <button class="btn-ghost-pill">Get started</button>
+  </div>
+  <p class="cta-fine">Free 14-day trial &middot; No credit card &middot; Setup in one day</p>
+</section>
+
+<footer>
+  <span class="flogo">PatientEngage</span>
+  <span class="fcopy">&copy; 2026 &middot; patientengage.ai</span>
+</footer>
+
+<script>
+function toggle(el) { el.classList.toggle('open'); }
+</script>
+</body>
+</html>
