@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directory Listings + Google Profile | Local Visibility for Eye Care | PatientEngage</title>
+  <meta name="description" content="50+ directory listings, Google Business Profile optimization, and Facebook Page sync. One source of truth for your practice's online presence. Managed for you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:    #0F2A4A;
+      --blue:    #1B5FA8;
+      --teal:    #00A3A3;
+      --green:   #0F6E56;
+      --green-bg:#F0FDF9;
+      --green-bd:#A7F3D0;
+      --slate:   #4B6278;
+      --muted:   #7A96A8;
+      --border:  #E2E8F0;
+      --bg:      #F8FAFC;
+      --blue-lt: #EEF4FF;
+      --red:     #DC2626;
+      --red-bg:  #FEF2F2;
+      --red-bd:  #FECACA;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--navy);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo { font-size: 17px; font-weight: 800; color: var(--navy); text-decoration: none; letter-spacing: -.3px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links .active { color: var(--navy); font-weight: 600; border-bottom: 2px solid var(--teal); padding-bottom: 2px; }
+    .nav-actions { display: flex; gap: 8px; }
+    .btn-outline { padding: 9px 22px; border-radius: 30px; border: 1.5px solid var(--border); background: #fff; color: var(--navy); font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: border-color .2s; text-decoration: none; }
+    .btn-outline:hover { border-color: var(--navy); }
+    .btn-dark { padding: 9px 22px; border-radius: 30px; border: none; background: var(--navy); color: #fff; font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background .2s; text-decoration: none; }
+    .btn-dark:hover { background: #1a3d6b; }
+
+    /* HERO */
+    .hero { padding: 88px 48px 72px; text-align: center; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 18px;
+      background: var(--green-bg);
+      border: 1px solid var(--green-bd);
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 24px;
+    }
+    .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 56px;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.08;
+      letter-spacing: -.5px;
+      margin-bottom: 20px;
+      max-width: 740px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 em { font-style: italic; color: var(--teal); }
+    .hero-sub {
+      font-size: 19px;
+      color: var(--slate);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto 14px;
+    }
+    .hero-detail {
+      font-size: 16px;
+      color: var(--slate);
+      line-height: 1.75;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+    .btn-navy-pill { padding: 14px 32px; border-radius: 30px; border: none; background: var(--navy); color: #fff; font-size: 15px; font-weight: 700; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background .2s; text-decoration: none; }
+    .btn-navy-pill:hover { background: #1a3d6b; }
+    .btn-ghost-pill { padding: 14px 32px; border-radius: 30px; border: 1.5px solid var(--border); background: #fff; color: var(--navy); font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: border-color .2s; text-decoration: none; }
+    .btn-ghost-pill:hover { border-color: var(--navy); }
+    .hero-fine { font-size: 14px; color: var(--muted); margin-bottom: 56px; }
+
+    /* STATS */
+    .stats {
+      display: flex;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .stat { flex: 1; padding: 32px 24px; text-align: center; border-right: 1px solid var(--border); }
+    .stat:last-child { border-right: none; }
+    .stat-n {
+      font-family: 'DM Serif Display', serif;
+      font-size: 42px;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+    .stat-l { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+    /* SECTIONS */
+    .section { padding: 80px 48px; }
+    .section-alt { background: var(--bg); }
+    .si { max-width: 900px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: -.3px;
+    }
+    .ssub {
+      font-size: 17px;
+      color: var(--slate);
+      line-height: 1.75;
+      max-width: 560px;
+      margin-bottom: 44px;
+    }
+
+    /* PROBLEM CARDS */
+    .before-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+    .bc { padding: 26px; border-radius: 14px; border: 1px solid var(--border); background: #fff; }
+    .bc.hl { border-color: var(--red-bd); background: var(--red-bg); }
+    .btag {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      background: var(--bg);
+      color: var(--muted);
+    }
+    .btag.bad { background: #FEE2E2; color: var(--red); }
+    .btitle { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .bbody { font-size: 14px; color: var(--slate); line-height: 1.7; }
+
+    .pullquote {
+      background: var(--navy);
+      border-radius: 14px;
+      padding: 32px 40px;
+      text-align: right;
+    }
+    .pullquote p {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: #fff;
+      line-height: 1.5;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .pullquote span { font-size: 14px; color: var(--muted); }
+
+    /* LAYERS / FEATURE CARDS */
+    .layers { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 44px; }
+    .layer { padding: 30px 26px; border: 1px solid var(--border); border-radius: 14px; background: #fff; transition: border-color .2s; }
+    .layer:hover { border-color: var(--teal); }
+    .layer-icon { font-size: 32px; margin-bottom: 14px; }
+    .layer-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .layer-body { font-size: 14px; color: var(--slate); line-height: 1.7; margin-bottom: 12px; }
+    .layer-detail { font-size: 13px; color: var(--muted); line-height: 1.65; padding-top: 12px; border-top: 1px solid var(--border); }
+
+    /* PAIRS (image + text) */
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-top: 56px; }
+    .pair.flip { direction: rtl; }
+    .pair.flip > * { direction: ltr; }
+    .pframe { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 28px rgba(15,42,74,.09); }
+    .pframe img { width: 100%; display: block; }
+    .ptext h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 30px; font-weight: 400; color: var(--navy); line-height: 1.2; margin-bottom: 14px;
+    }
+    .ptext p { font-size: 15px; color: var(--slate); line-height: 1.75; margin-bottom: 14px; }
+    .proof-pill {
+      display: inline-block; padding: 5px 16px;
+      background: var(--blue-lt); color: var(--blue); border-radius: 20px;
+      font-size: 13px; font-weight: 600;
+    }
+    .frame-bar {
+      background: var(--bg);
+      padding: 11px 18px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .fdot { width: 10px; height: 10px; border-radius: 50%; }
+    .furl {
+      background: #EDF2F7;
+      border-radius: 5px;
+      padding: 4px 16px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: 12px;
+      flex: 1;
+      max-width: 340px;
+      text-align: center;
+    }
+
+    /* DIFFERENTIATOR CALLOUT */
+    .diff-box {
+      background: linear-gradient(135deg, #F0F7FF, #F0FDFB);
+      border: 1px solid #DBEAFE;
+      border-radius: 16px;
+      padding: 40px;
+      margin-top: 56px;
+    }
+    .diff-box .eyebrow { margin-bottom: 8px; }
+    .diff-box h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px; font-weight: 400; color: var(--navy); line-height: 1.25; margin-bottom: 16px;
+    }
+    .diff-box p { font-size: 15px; color: var(--slate); line-height: 1.75; margin-bottom: 14px; max-width: 700px; }
+    .diff-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+    .diff-col { padding: 20px; border-radius: 12px; }
+    .diff-col.them { background: var(--red-bg); border: 1px solid var(--red-bd); }
+    .diff-col.us { background: var(--green-bg); border: 1px solid var(--green-bd); }
+    .diff-col-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+    .diff-col.them .diff-col-title { color: var(--red); }
+    .diff-col.us .diff-col-title { color: var(--green); }
+    .diff-col-body { font-size: 14px; line-height: 1.7; color: var(--slate); }
+
+    /* CASE / COST OF INACTION */
+    .case {
+      background: linear-gradient(135deg, #FEF2F2, #FFF7ED);
+      border: 1px solid var(--red-bd);
+      border-radius: 16px;
+      padding: 40px;
+    }
+    .case-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      margin: 22px 0 32px;
+    }
+    .cs { padding: 20px 14px; text-align: center; border-right: 1px solid var(--border); }
+    .cs:last-child { border-right: none; }
+    .cs-n {
+      font-family: 'DM Serif Display', serif;
+      font-size: 34px;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    .cs-n.warn { color: var(--red); }
+    .cs-l { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+    .qtext {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--navy);
+      line-height: 1.65;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .qattr { display: flex; align-items: center; gap: 14px; }
+    .avatar {
+      width: 42px; height: 42px; border-radius: 50%; background: var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+    .qname { font-size: 14px; font-weight: 700; color: var(--navy); }
+    .qloc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+    /* TABLE */
+    .tw {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      overflow-x: auto;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    thead th {
+      padding: 15px 18px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    thead th:not(:first-child) { text-align: center; }
+    thead th.pe { background: var(--blue-lt); color: var(--blue); }
+    tbody td {
+      padding: 13px 18px;
+      border-bottom: 1px solid #F1F5F9;
+      color: var(--slate);
+      font-size: 14px;
+    }
+    tbody td:not(:first-child) { text-align: center; }
+    tbody td.pe { background: #F8FBFF; }
+    tbody td.win { color: var(--green); font-weight: 700; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: var(--bg); }
+    tbody tr:hover td.pe { background: var(--blue-lt); }
+    .tnote { font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+    /* FAQ */
+    .obj { border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+    .obj-q {
+      padding: 18px 24px; font-size: 15px; font-weight: 600; color: var(--navy);
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      transition: background .15s; user-select: none; line-height: 1.4;
+    }
+    .obj-q:hover { background: var(--bg); }
+    .arr { color: var(--muted); font-size: 20px; transition: transform .2s; flex-shrink: 0; margin-left: 16px; }
+    .obj-a { padding: 0 24px 20px; font-size: 15px; color: var(--slate); line-height: 1.75; display: none; }
+    .obj.open .obj-a { display: block; }
+    .obj.open .arr { transform: rotate(180deg); }
+
+    /* CROSS-FEATURE TEASER */
+    .gr-teaser {
+      margin-top: 56px; padding: 28px 32px;
+      border: 1px solid var(--green-bd); border-radius: 14px; background: var(--green-bg);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+    }
+    .gr-teaser-label { font-size: 12px; font-weight: 700; color: var(--green); letter-spacing: .8px; text-transform: uppercase; margin-bottom: 7px; }
+    .gr-teaser-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .gr-teaser-body { font-size: 14px; color: var(--slate); max-width: 500px; line-height: 1.65; }
+    .gr-link {
+      display: inline-block; padding: 11px 24px; border-radius: 30px;
+      border: 1.5px solid var(--green); color: var(--green); font-size: 14px;
+      font-weight: 600; text-decoration: none; white-space: nowrap; transition: background .2s;
+    }
+    .gr-link:hover { background: rgba(15,110,86,.08); }
+
+    /* CTA */
+    .cta {
+      padding: 88px 48px;
+      text-align: center;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .cta h2 { margin-bottom: 14px; }
+    .cta-sub { font-size: 17px; color: var(--slate); margin-bottom: 32px; line-height: 1.7; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-teal-pill {
+      padding: 14px 32px; border-radius: 30px; border: none; background: var(--teal); color: #fff;
+      font-size: 15px; font-weight: 700; font-family: 'DM Sans', sans-serif;
+      cursor: pointer; transition: background .2s; text-decoration: none;
+    }
+    .btn-teal-pill:hover { background: #008f8f; }
+    .cta-fine { font-size: 14px; color: var(--muted); margin-top: 18px; }
+
+    /* FOOTER */
+    footer {
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+    }
+    .flogo { font-size: 16px; font-weight: 800; color: var(--navy); }
+    .fcopy { font-size: 13px; color: var(--muted); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      h1 { font-size: 38px; }
+      .hero { padding: 60px 20px 52px; }
+      .hero-sub { font-size: 17px; }
+      .stats { flex-direction: column; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+      .section { padding: 60px 20px; }
+      .before-grid, .layers { grid-template-columns: 1fr; }
+      .pair, .pair.flip { grid-template-columns: 1fr; gap: 28px; direction: ltr; }
+      .case-stats { grid-template-columns: 1fr; }
+      .cs { border-right: none; border-bottom: 1px solid var(--border); }
+      .cs:last-child { border-bottom: none; }
+      h2 { font-size: 30px; }
+      .pullquote { text-align: left; padding: 24px; }
+      .diff-cols { grid-template-columns: 1fr; }
+      .gr-teaser { flex-direction: column; }
+      .cta { padding: 60px 20px; }
+      footer { flex-direction: column; gap: 8px; padding: 20px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">PatientEngage</a>
+  <ul class="nav-links">
+    <li><a href="/campaigns">Campaigns</a></li>
+    <li><a href="/social-posts">Social Stream</a></li>
+    <li><a href="/directory-listings" class="active">Directory Listings</a></li>
+    <li><a href="/reviews">Reviews</a></li>
+    <li><a href="/reminders">Reminders</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="#" class="btn-outline">Sign in</a>
+    <a href="#" class="btn-dark">Get started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge"><span class="badge-dot"></span> Part of the PatientEngage platform serving 2,500+ practices</div>
+  <h1>Patients can't book with a practice <em>they can't find.</em></h1>
+  <p class="hero-sub">Your practice is listed on 50+ directories right now. How many of them have the right phone number?</p>
+  <p class="hero-detail">Google cross-references your business information across the web. When it finds conflicting data, it hides your practice to protect its own reputation. Directory Listings keeps your name, address, phone, and hours consistent everywhere, so Google trusts your data and patients find you on the Map.</p>
+  <div class="hero-cta">
+    <a href="#" class="btn-navy-pill">Book a Demo</a>
+    <a href="#how" class="btn-ghost-pill">See How It Works</a>
+  </div>
+  <p class="hero-fine">No contracts · Managed for you · Results in weeks</p>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-n">80%</div>
+    <div class="stat-l">of mobile search conversions<br>happen in the Map Pack</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">50+</div>
+    <div class="stat-l">directories managed<br>per location</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">3</div>
+    <div class="stat-l">platforms synced<br>Directories · Google · Facebook</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">1</div>
+    <div class="stat-l">source of truth<br>edit once, update everywhere</div>
+  </div>
+</div>
+
+<!-- PROBLEM: THE VISIBILITY MALIGNANCY -->
+<section class="section">
+  <div class="si">
+    <div class="eyebrow">The visibility problem</div>
+    <h2>Your digital footprint is probably fragmented</h2>
+    <p class="ssub">Most practices set up their online listings once and never touch them again. Then life happens: you move, change hours, get a new phone number. The website gets updated. Google might get updated. The other 50 directories? They still show the old information.</p>
+
+    <div class="before-grid">
+      <div class="bc hl">
+        <div class="btag bad">Wrong phone</div>
+        <div class="btitle">Disconnected line on 8 directories</div>
+        <div class="bbody">You changed your number two years ago. Manta, SuperPages, MapQuest, and five other sites still list the old one. Patients call, hear a disconnected tone, and call the next practice on the list.</div>
+      </div>
+      <div class="bc hl">
+        <div class="btag bad">Wrong hours</div>
+        <div class="btitle">Patient arrives to a locked door</div>
+        <div class="bbody">Your Wednesday hours changed last year. Facebook still says 9-5. A patient drives across town at 4:30, finds you closed, and leaves a one-star review.</div>
+      </div>
+      <div class="bc hl">
+        <div class="btag bad">Wrong ranking</div>
+        <div class="btitle">Position #7 on the Map</div>
+        <div class="bbody">Google sees three different versions of your address across the web. It loses confidence in your data and drops you below the fold. The practice with consistent listings gets your spot.</div>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <p>"I had no idea we were listed on that many websites, let alone that half of them had our old phone number. Patients were probably calling a disconnected line and just going somewhere else."</p>
+      <span>Practice Owner, independent optometry practice (composite)</span>
+    </div>
+  </div>
+</section>
+
+<!-- THREE LAYERS OF LOCAL VISIBILITY -->
+<section id="how" class="section section-alt">
+  <div class="si">
+    <div class="eyebrow">Three layers of local visibility</div>
+    <h2>One source of truth. Everything stays synced.</h2>
+    <p class="ssub">Your Location record in PatientEngage is the single source of truth. Edit it once, and the changes push to directories, Google, and Facebook automatically. No separate logins. No manual updates. No forgotten sites.</p>
+
+    <div class="layers">
+      <div class="layer">
+        <div class="layer-icon">🌐</div>
+        <div class="layer-title">50+ Directory Listings</div>
+        <div class="layer-body">Verified practice data pushed to major data aggregators and authority directories including Healthgrades, Yelp, Bing, Manta, MapQuest, YellowPages, and more. Some of these are aggregators that power dozens of downstream sites, so one update cascades across the web.</div>
+        <div class="layer-detail">Each listing is a citation signal that strengthens your local SEO. Domain Authority scores range from 41 to 88 across the network.</div>
+      </div>
+      <div class="layer">
+        <div class="layer-icon">📍</div>
+        <div class="layer-title">Google Business Profile</div>
+        <div class="layer-body">More than just a data sync. We optimize your Google Business Profile with medical categories, specialty service descriptions, and active engagement signals. Your profile triggers Map Pack appearances for the searches that matter: "dry eye treatment near me," not just your practice name.</div>
+        <div class="layer-detail">Name, phone, address, hours, description, primary category, and website URL stay current automatically.</div>
+      </div>
+      <div class="layer">
+        <div class="layer-icon">👍</div>
+        <div class="layer-title">Facebook Page Sync</div>
+        <div class="layer-body">Location data, hours, website, bio, and cover photos sync to your Facebook page through the API. When your hours change or a seasonal awareness campaign launches, your Facebook page reflects it without anyone on your team logging in.</div>
+        <div class="layer-detail">Everything editable on your Facebook business page, managed from one place.</div>
+      </div>
+    </div>
+
+    <!-- PAIR: Directory Dashboard -->
+    <div class="pair">
+      <div class="pframe">
+        <div class="frame-bar">
+          <span class="fdot" style="background:#FF5F57"></span>
+          <span class="fdot" style="background:#FFBD2E"></span>
+          <span class="fdot" style="background:#27C93F"></span>
+          <span class="furl">patientengage.com/directory-listings</span>
+        </div>
+        <img src="/directory-listings/screenshots/ss_dir_01_dashboard.png" alt="Directory Listings dashboard showing 100% Live status across all managed directories">
+      </div>
+      <div class="ptext">
+        <h3>See every listing at a glance</h3>
+        <p>Your dashboard shows the live status of every directory: which ones are active, which are pending, and which need attention. One donut chart tells you if your digital footprint is healthy.</p>
+        <p>Each directory link goes directly to your live listing on that site, so you can verify it yourself anytime.</p>
+        <span class="proof-pill">Live status tracking for every directory</span>
+      </div>
+    </div>
+
+    <!-- PAIR: Google Profile -->
+    <div class="pair flip">
+      <div class="pframe">
+        <div class="frame-bar">
+          <span class="fdot" style="background:#FF5F57"></span>
+          <span class="fdot" style="background:#FFBD2E"></span>
+          <span class="fdot" style="background:#27C93F"></span>
+          <span class="furl">patientengage.com/google-profile</span>
+        </div>
+        <img src="/directory-listings/screenshots/ss_dir_02_google.png" alt="Google Business Profile management showing location sync, hours, and category optimization">
+      </div>
+      <div class="ptext">
+        <h3>Google Profile, fully managed</h3>
+        <p>Your Google Business Profile is optimized with medical categories that go beyond generic "Optometrist" tags. We add categories like "Eye Care Center" and "Contact Lens Supplier" so your practice appears for high-value specialty searches.</p>
+        <p>Hours, contact info, and descriptions sync automatically whenever your Location record changes.</p>
+        <span class="proof-pill">Medical category optimization included</span>
+      </div>
+    </div>
+
+    <!-- PAIR: Facebook Page -->
+    <div class="pair">
+      <div class="pframe">
+        <div class="frame-bar">
+          <span class="fdot" style="background:#FF5F57"></span>
+          <span class="fdot" style="background:#FFBD2E"></span>
+          <span class="fdot" style="background:#27C93F"></span>
+          <span class="furl">patientengage.com/facebook</span>
+        </div>
+        <img src="/directory-listings/screenshots/ss_dir_03_facebook.png" alt="Facebook Page management showing location sync, cover photo management, and bio fields">
+      </div>
+      <div class="ptext">
+        <h3>Facebook stays current without Facebook</h3>
+        <p>Your Facebook page's address, hours, bio, cover photo, and contact details all sync through the API. No more logging into Facebook to update your Wednesday hours or swap a seasonal cover image.</p>
+        <p>When something changes in your Location record, Facebook reflects it automatically.</p>
+        <span class="proof-pill">API-synced, always current</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATOR: TOOL vs SERVICE -->
+<section class="section">
+  <div class="si">
+    <div class="eyebrow">What makes this different</div>
+    <h2>Other platforms give you a dashboard. We give you results.</h2>
+    <p class="ssub">Most directory management tools hand you a login and say "manage your listings." PatientEngage manages them for you. Your Google Business Profile is optimized, updated, and maintained by a team that understands eye care, not by your office manager between patients.</p>
+
+    <div class="diff-box">
+      <div class="diff-cols">
+        <div class="diff-col them">
+          <div class="diff-col-title">Generic listing tools</div>
+          <div class="diff-col-body">Sync your name and address to directories. Set your Google category to "Optometrist" and stop there. Give you a dashboard and expect you to manage it. Treat your practice the same as a plumber or a pizza shop. No ongoing optimization after initial setup.</div>
+        </div>
+        <div class="diff-col us">
+          <div class="diff-col-title">PatientEngage</div>
+          <div class="diff-col-body">Push verified data to 50+ directories and major aggregators. Optimize your Google Profile with medical categories and specialty service descriptions. Keep your profile active and current. Manage everything for you. Built specifically for eye care by a team that knows the difference between a daily disposable and a scleral lens.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COST OF INACTION -->
+<section class="section section-alt">
+  <div class="si">
+    <div class="eyebrow">The cost of staying invisible</div>
+    <h2>Every month at position #7, patients find your competitor instead</h2>
+    <p class="ssub">The Map Pack is the front door for new patients. If your practice isn't in the top three results, most mobile searchers will never see you.</p>
+
+    <div class="case">
+      <div class="case-stats">
+        <div class="cs">
+          <div class="cs-n warn">10-15</div>
+          <div class="cs-l">exams lost per month<br>at position #7 vs top 3</div>
+        </div>
+        <div class="cs">
+          <div class="cs-n">46%</div>
+          <div class="cs-l">of all Google searches<br>have local intent</div>
+        </div>
+        <div class="cs">
+          <div class="cs-n">44%</div>
+          <div class="cs-l">of local search clicks<br>go to the Map Pack</div>
+        </div>
+      </div>
+
+      <div class="qtext">"You're not just losing exams today. You're losing the lifetime value of every patient who never finds you."</div>
+
+      <p style="font-size: 15px; color: var(--slate); line-height: 1.75;">Inconsistent directory data doesn't send you a notification. There's no alert when a patient calls your old number and hangs up. No email when Google drops you from #3 to #7 because it found conflicting addresses. The damage is invisible, and it compounds every month you don't fix it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section">
+  <div class="si">
+    <div class="eyebrow">How we compare</div>
+    <h2>Not all directory management is the same</h2>
+    <p class="ssub">Some competitors sync your data. Some set up your Google profile once and disappear. Here's how PatientEngage stacks up.</p>
+
+    <div class="tw">
+      <table>
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th class="pe">PatientEngage</th>
+            <th>Tebra</th>
+            <th>iMatrix / Dr. Multimedia</th>
+            <th>Thryv</th>
+            <th>DIY / Manual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Directory listing distribution</td>
+            <td class="pe win">50+ directories + aggregators</td>
+            <td>Partial sync</td>
+            <td>Basic setup</td>
+            <td>Generic SMB directories</td>
+            <td>1 site at a time</td>
+          </tr>
+          <tr>
+            <td>GBP medical category optimization</td>
+            <td class="pe win">Eye care-specific categories</td>
+            <td>Generic healthcare</td>
+            <td>Basic "Optometrist" only</td>
+            <td>Generic business</td>
+            <td>If you know how</td>
+          </tr>
+          <tr>
+            <td>Specialty service descriptions</td>
+            <td class="pe win">Dry Eye, Myopia, Sclerals, etc.</td>
+            <td>Generic templates</td>
+            <td>Not included</td>
+            <td>Not included</td>
+            <td>You write them</td>
+          </tr>
+          <tr>
+            <td>Ongoing GBP management</td>
+            <td class="pe win">Continuous optimization</td>
+            <td>Initial setup only</td>
+            <td>Initial setup only</td>
+            <td>Data sync only</td>
+            <td>When you remember</td>
+          </tr>
+          <tr>
+            <td>Facebook Page sync</td>
+            <td class="pe win">Full API sync + cover photos</td>
+            <td>Not included</td>
+            <td>Not included</td>
+            <td>Basic sync</td>
+            <td>Manual updates</td>
+          </tr>
+          <tr>
+            <td>Eye care expertise</td>
+            <td class="pe win">Built for optometry</td>
+            <td>Generic healthcare</td>
+            <td>Template-driven</td>
+            <td>Plumbers to dentists</td>
+            <td>Depends on staff</td>
+          </tr>
+          <tr>
+            <td>Managed for you</td>
+            <td class="pe win">Fully managed</td>
+            <td>Partially managed</td>
+            <td>Set up and left</td>
+            <td>Self-service tool</td>
+            <td>All on you</td>
+          </tr>
+          <tr>
+            <td>One source of truth</td>
+            <td class="pe win">Location record syncs everywhere</td>
+            <td>Separate systems</td>
+            <td>No central record</td>
+            <td>Limited sync</td>
+            <td>Spreadsheet, maybe</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tnote">Competitor capabilities based on publicly available information and industry positioning. Your experience may vary.</p>
+  </div>
+</section>
+
+<!-- FAQ / OBJECTIONS -->
+<section class="section section-alt">
+  <div class="si">
+    <div class="eyebrow">Common questions</div>
+    <h2>You might be wondering</h2>
+    <p class="ssub">Honest answers to the questions practices ask most about directory management and Google visibility.</p>
+
+    <div class="obj">
+      <div class="obj-q">"My staff handles our listings manually. Why do I need this?"<span class="arr">&#9662;</span></div>
+      <div class="obj-a">Your team's time is valuable. Manually updating 50+ directories one by one takes hours, and third-party data sources (like credit card processors or data aggregators) can overwrite those manual changes overnight. Without a locked API sync, it becomes a game of whack-a-mole that never ends. An automated sync keeps your data consistent, so your staff can focus on patients instead of logging into websites.</div>
+    </div>
+    <div class="obj">
+      <div class="obj-q">"I'm already using another tool for directory management."<span class="arr">&#9662;</span></div>
+      <div class="obj-a">General-purpose listing tools sync your name and address, which is a solid start. But they typically don't know how to optimize for specialty eye care searches like "dry eye treatment" or "myopia management near me." If your practice is looking to attract higher-value medical patients, directory management built for eye care makes a real difference. It's not just about syncing your front door. It's about making sure the right patients can find you for the right services.</div>
+    </div>
+    <div class="obj">
+      <div class="obj-q">"It's just a directory. Is it really worth the investment?"<span class="arr">&#9662;</span></div>
+      <div class="obj-a">Directories might sound like a background detail, but they're the road that leads patients to your front door. When 80% of local mobile search conversions happen through the Map Pack, your directory data is the difference between being found and being invisible. The real question isn't "what does this cost?" It's "what are inconsistent listings already costing you in patients you never see?" Even a handful of missed appointments each month adds up quickly.</div>
+    </div>
+    <div class="obj">
+      <div class="obj-q">"I want to update my website first, then worry about directories."<span class="arr">&#9662;</span></div>
+      <div class="obj-a">A beautiful website deserves to be seen. But if patients can't find you on the Map because your directory data is inconsistent, that website is a showroom with no road leading to it. Getting your listings cleaned up first actually makes every dollar you spend on the website work harder, because Google will trust your data enough to show that new website to searchers.</div>
+    </div>
+    <div class="obj">
+      <div class="obj-q">"We get enough patients from word-of-mouth. Do we really need this?"<span class="arr">&#9662;</span></div>
+      <div class="obj-a">Referrals are wonderful, and they're a sign your patients trust you. But even referred patients Google your practice before they call. If they find outdated hours, a wrong phone number, or a thin Google profile, some of them quietly go elsewhere. Strong digital visibility makes your referral pipeline more reliable, not less. And it opens the door to the patients who don't know you yet.</div>
+    </div>
+    <div class="obj">
+      <div class="obj-q">"We already rank #1 when people search our practice name."<span class="arr">&#9662;</span></div>
+      <div class="obj-a">Ranking for your own name is a great baseline, and it means your existing patients can find you easily. But the bigger opportunity is the patients who don't know you yet: the ones searching "eye doctor near me" or "dry eye specialist." Those unbranded searches are where new patient growth comes from, and that's where directory consistency and Google Profile optimization make the difference.</div>
+    </div>
+    <div class="obj">
+      <div class="obj-q">"I'm too busy right now. I don't need more patients."<span class="arr">&#9662;</span></div>
+      <div class="obj-a">Being fully booked is a great problem to have. But if most of those appointments are lower-margin vision plans, visibility for specialty services can help shift the mix over time. When patients can find you for dry eye treatment, myopia management, or scleral lens fittings, you start filling your schedule with the cases that are more rewarding to practice and more profitable to run.</div>
+    </div>
+
+    <!-- CROSS-FEATURE TEASER -->
+    <div class="gr-teaser">
+      <div>
+        <div class="gr-teaser-label">Works with Social Stream</div>
+        <div class="gr-teaser-title">Your social posts publish to the same Google and Facebook profiles</div>
+        <div class="gr-teaser-body">Directory Listings keeps your profiles accurate. Social Stream keeps them active. Together, they create a practice that looks professional, current, and trustworthy across every platform.</div>
+      </div>
+      <a href="/social-posts" class="gr-link">See Social Stream &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Your patients are searching. Can they find you?</h2>
+  <p class="cta-sub">50+ directories. Google Business Profile. Facebook. All managed from one source of truth, by a team that understands eye care. Book a demo and see what your digital footprint looks like today.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn-teal-pill">Book a Demo</a>
+    <a href="#how" class="btn-ghost-pill">See How It Works</a>
+  </div>
+  <p class="cta-fine">No contracts · No setup fees · Managed for you</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="flogo">PatientEngage</span>
+  <span class="fcopy">&copy; 2026 PatientEngage. All rights reserved.</span>
+</footer>
+
+<script>
+document.querySelectorAll('.obj-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const obj = q.parentElement;
+    obj.classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>
